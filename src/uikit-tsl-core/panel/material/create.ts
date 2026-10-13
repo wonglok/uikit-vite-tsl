@@ -24,7 +24,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FrontSide } from 'three'
 import type { Material } from 'three'
-import { attribute, float, positionLocal, uniform, uv, vec3, vec4 } from 'three/tsl'
+import {
+  attribute,
+  float,
+  materialColor,
+  materialOpacity,
+  positionLocal,
+  uniform,
+  uv,
+  vec4,
+} from 'three/tsl'
 import { createPanelSurface } from './shader'
 
 export type MaterialClass = { new (...args: Array<any>): Material }
@@ -61,23 +70,35 @@ type AnyNode = any
 
 /**
  * The non-instanced equivalent: four `vec4` uniforms refreshed from the shared
- * Float32Array, which the material setters write into in place.
+ * Float32Array the material setters write into.
+ *
+ * THE REFRESH IS DRIVEN BY A NODE UPDATE, NOT `material.onBeforeRender`.
+ * Upstream's WebGL port used the material hook because `WebGLRenderer` calls it.
+ * `WebGPURenderer` does NOT — its render loop calls `object.onBeforeRender` and
+ * never the material's (three 0.186, `renderObject`). A material-level hook is
+ * therefore dead code here, and the uniforms kept their initial zeros forever:
+ * `background` was black at opacity 0, so every non-instanced panel — which is
+ * what `<Image>` uses — rendered as nothing at all.
+ *
+ * `Node.onFrameUpdate` is a hook the node system honours on both backends.
+ * Each column registers its own update: three uploads a uniform when its node is
+ * updated, so one node updating four siblings would only mark itself dirty.
  */
 function uniformColumns(data: Float32Array) {
-  const columns = [0, 1, 2, 3].map(() => uniform(vec4(0, 0, 0, 0)))
-
-  const sync = () => {
-    for (let index = 0; index < 4; index += 1) {
-      columns[index]!.value.set(
+  const columns = [0, 1, 2, 3].map((index) => {
+    const column = uniform(vec4(0, 0, 0, 0)) as AnyNode
+    column.onFrameUpdate(() => {
+      column.value.set(
         data[index * 4 + 0]!,
         data[index * 4 + 1]!,
         data[index * 4 + 2]!,
         data[index * 4 + 3]!,
       )
-    }
-  }
+    })
+    return column
+  })
 
-  return { columns: columns as [AnyNode, AnyNode, AnyNode, AnyNode], sync }
+  return { columns: columns as [AnyNode, AnyNode, AnyNode, AnyNode] }
 }
 
 export function createPanelMaterial<T extends MaterialClass>(
@@ -94,7 +115,6 @@ export function createPanelMaterial<T extends MaterialClass>(
 
   let dataColumns: [AnyNode, AnyNode, AnyNode, AnyNode]
   let clippingPlanes: [AnyNode, AnyNode, AnyNode, AnyNode] | null = null
-  let sync: (() => void) | undefined
 
   if (info.type === 'instanced') {
     dataColumns = panelDataAttributeNames.map((name) =>
@@ -104,9 +124,7 @@ export function createPanelMaterial<T extends MaterialClass>(
       attribute(name, 'vec4'),
     ) as [AnyNode, AnyNode, AnyNode, AnyNode]
   } else {
-    const uniforms = uniformColumns(info.data)
-    dataColumns = uniforms.columns
-    sync = uniforms.sync
+    dataColumns = uniformColumns(info.data).columns
   }
 
   /*
@@ -126,10 +144,37 @@ export function createPanelMaterial<T extends MaterialClass>(
    */
   const localPosition = info.type === 'instanced' ? positionLocal : null
 
+  /*
+   * TEXTURES (`material.map`) — read them through three's own material nodes.
+   *
+   * Upstream patched the DIFFUSE chunk, so `diffuseColor` already carried the
+   * texture and `map`/`mapTransform` were handled by three's stock shader code;
+   * this port instead supplies the whole colour from `colorNode`, and that has a
+   * consequence worth spelling out because it silently breaks `<Image>`:
+   * `NodeMaterial.setupDiffuseColor` reads
+   *
+   *     let colorNode = this.colorNode ? vec4( this.colorNode ) : materialColor;
+   *
+   * The `map` lookup lives inside `materialColor` (three's `MaterialNode.COLOR`
+   * is `material.color * texture( material.map )`), so assigning a `colorNode`
+   * discards it. A hardcoded `vec3( 1, 1, 1 )` here therefore made every texture
+   * invisible: the panel still drew, but only its own background colour.
+   *
+   * Using the reference nodes keeps upstream's behaviour AND its dynamism — they
+   * resolve the material at render time, so a `map` assigned after this material
+   * is built (which is exactly what `components/image.ts` does, since the texture
+   * loads asynchronously) is still picked up. `texture()` applies the texture's
+   * `matrix`, which is what `<Image>`'s `objectFit` maths writes into.
+   *
+   * When there is no map the values are the neutral ones this used to hardcode:
+   * `material.color` defaults to white and `material.opacity` to 1.
+   */
+  const diffuse = materialColor as AnyNode
+
   const surface = createPanelSurface({
     uv: uv(),
-    materialColor: vec3(1, 1, 1),
-    materialOpacity: float(1),
+    materialColor: diffuse.rgb,
+    materialOpacity: (materialOpacity as AnyNode).mul(diffuse.a),
     borderSize: dataColumns[0],
     background: dataColumns[1],
     borderAndRadius: dataColumns[2],
@@ -169,14 +214,6 @@ export function createPanelMaterial<T extends MaterialClass>(
 
   if (surface.normalNode != null && 'normalNode' in material) {
     material.normalNode = surface.normalNode
-  }
-
-  if (sync) {
-    const previous = material.onBeforeRender
-    material.onBeforeRender = function (...args: Parameters<Material['onBeforeRender']>) {
-      sync!()
-      previous?.apply(this, args)
-    }
   }
 
   return material

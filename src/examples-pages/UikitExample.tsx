@@ -2,9 +2,17 @@
  * Port of upstream `examples/uikit`.
  *
  * The upstream scene also mounts `Video` (from a local mp4) and `Portal`
- * (rendering a nested R3F scene into a render target). Both are omitted here:
- * `Portal` depends on per-instance clipping, which is still disabled in the TSL
- * port (see `panel/material/create.ts`), and the video asset is not vendored.
+ * (rendering a nested R3F scene into a render target, displayed through an
+ * `<Image>`). Both are omitted here: the video asset is not vendored, and the
+ * scene as it stands already covers what this example is for.
+ *
+ * `Portal` in particular is no longer blocked — the per-instance clipping it
+ * needed is implemented in `panel/instance/group.ts` and
+ * `panel/material/create.ts`, and `<Image>` renders (see `createPanelMaterial`'s
+ * note on `material.map` and on why uniform sync cannot use
+ * `material.onBeforeRender`). It can be added back whenever this example needs to
+ * exercise it.
+ *
  * Everything else is faithful.
  */
 import { Box, OrbitControls } from "@react-three/drei";
