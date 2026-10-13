@@ -58,7 +58,12 @@ import {
 } from "../uikit-tsl-core/kits/horizon/core";
 import { UikitCanvas } from "./UikitCanvas";
 
-type ButtonVariant = "primary" | "secondary" | "tertiary" | "positive" | "onMedia";
+type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "positive"
+  | "onMedia";
 
 /** Upstream reads these from the URL query string; the port uses the defaults. */
 const config = { rows: 160, cards: 8, tags: 3, motion: true, boxes: 32 };
@@ -76,7 +81,11 @@ function VanillaScene() {
     gl.localClippingEnabled = true;
     gl.setTransparentSort(reversePainterSortStable);
 
-    const { update } = forwardHtmlEvents(gl.domElement, camera as PerspectiveCamera, scene);
+    const { update } = forwardHtmlEvents(
+      gl.domElement,
+      camera as PerspectiveCamera,
+      scene,
+    );
     updateEventsRef.current = update;
 
     scene.add(new AmbientLight(undefined, 1.5));
@@ -114,19 +123,31 @@ function VanillaScene() {
     const animatedBars: Array<ProgressBar> = [];
     animatedBarsRef.current = animatedBars;
 
-    const addText = (parent: Container, text: string, properties?: InProperties<TextOutProperties>) => {
+    const addText = (
+      parent: Container,
+      text: string,
+      properties?: InProperties<TextOutProperties>,
+    ) => {
       const element = new Text({ text, ...properties });
       parent.add(element);
       return element;
     };
 
-    const ui = <T extends Container>(ComponentClass: new (properties?: any) => T, properties: any, parent?: Container): T => {
+    const ui = <T extends Container>(
+      ComponentClass: new (properties?: any) => T,
+      properties: any,
+      parent?: Container,
+    ): T => {
       const element = new ComponentClass(properties);
       parent?.add(element);
       return element;
     };
 
-    const makeButton = (labelText: string, variant: ButtonVariant, onClick: () => void) => {
+    const makeButton = (
+      labelText: string,
+      variant: ButtonVariant,
+      onClick: () => void,
+    ) => {
       const button = new Button({ size: "sm", variant, onClick });
       const label = new ButtonLabel({ flexDirection: "row" });
       label.add(new Text({ text: labelText }));
@@ -135,7 +156,11 @@ function VanillaScene() {
     };
 
     const makeIconButton = () => {
-      const button = new Button({ icon: true, size: "sm", variant: "tertiary" });
+      const button = new Button({
+        icon: true,
+        size: "sm",
+        variant: "tertiary",
+      });
       const icon = new ButtonIcon();
       icon.add(new PlusIcon());
       button.add(icon);
@@ -154,13 +179,24 @@ function VanillaScene() {
         borderWidth: 1,
         borderRadius: 8,
       });
-      addText(card, ["Latency", "Throughput", "Backlog", "Health"][index % 4]!, { color: 0x475467, fontSize: 12 });
-      addText(card, `${Math.round(38 + ((index * 17) % 61))}${index % 2 === 0 ? "ms" : "%"}`, {
-        fontSize: 22,
-        fontWeight: 700,
-        lineHeight: "100%",
+      addText(
+        card,
+        ["Latency", "Throughput", "Backlog", "Health"][index % 4]!,
+        { color: 0x475467, fontSize: 12 },
+      );
+      addText(
+        card,
+        `${Math.round(38 + ((index * 17) % 61))}${index % 2 === 0 ? "ms" : "%"}`,
+        {
+          fontSize: 22,
+          fontWeight: 700,
+          lineHeight: "100%",
+        },
+      );
+      const bar = new ProgressBar({
+        width: "100%",
+        value: 25 + ((index * 11) % 70),
       });
-      const bar = new ProgressBar({ width: "100%", value: 25 + ((index * 11) % 70) });
       animatedBars.push(bar);
       card.add(bar);
       return card;
@@ -181,7 +217,9 @@ function VanillaScene() {
         hover: { backgroundColor: 0xecfeff, borderColor: 0x06b6d4 },
       });
 
-      row.add(new Checkbox({ variant: index % 3 === 0 ? "onMedia" : "normal" }));
+      row.add(
+        new Checkbox({ variant: index % 3 === 0 ? "onMedia" : "normal" }),
+      );
 
       ui(
         Container,
@@ -195,18 +233,32 @@ function VanillaScene() {
         row,
       );
 
-      const title = ui(Container, { width: 250, flexShrink: 0, flexDirection: "column", gap: 2 }, row);
+      const title = ui(
+        Container,
+        { width: 250, flexShrink: 0, flexDirection: "column", gap: 2 },
+        row,
+      );
       addText(title, `Cluster ${String(index + 1).padStart(4, "0")}`, {
         fontWeight: 700,
         fontSize: 13,
         lineHeight: "100%",
       });
-      addText(title, ["API gateway", "Billing worker", "Media service", "Search shard"][index % 4]!, {
-        color: 0x667085,
-        fontSize: 11,
-      });
+      addText(
+        title,
+        ["API gateway", "Billing worker", "Media service", "Search shard"][
+          index % 4
+        ]!,
+        {
+          color: 0x667085,
+          fontSize: 11,
+        },
+      );
 
-      const tagWrap = ui(Container, { width: 260, flexShrink: 0, flexDirection: "row", gap: 6 }, row);
+      const tagWrap = ui(
+        Container,
+        { width: 260, flexShrink: 0, flexDirection: "row", gap: 6 },
+        row,
+      );
       for (let i = 0; i < config.tags; i++) {
         tagWrap.add(
           new Badge({
@@ -216,11 +268,18 @@ function VanillaScene() {
         );
       }
 
-      const progressColumn = ui(Container, { flexGrow: 1, minWidth: 120, flexDirection: "column", gap: 4 }, row);
+      const progressColumn = ui(
+        Container,
+        { flexGrow: 1, minWidth: 120, flexDirection: "column", gap: 4 },
+        row,
+      );
       const bar = new ProgressBar({ width: "100%", value: (index * 13) % 100 });
       animatedBars.push(bar);
       progressColumn.add(bar);
-      addText(progressColumn, `${40 + (index % 49)} jobs/min`, { color: 0x667085, fontSize: 10 });
+      addText(progressColumn, `${40 + (index % 49)} jobs/min`, {
+        color: 0x667085,
+        fontSize: 10,
+      });
 
       row.add(new Toggle({ defaultChecked: index % 5 === 0 }));
       row.add(makeIconButton());
@@ -243,8 +302,15 @@ function VanillaScene() {
         },
         parent,
       );
-      addText(sidebar, "UIKit Ops", { fontSize: 22, fontWeight: 700, lineHeight: "110%" });
-      addText(sidebar, "Vanilla Three.js stress surface", { color: 0xa7b0c0, fontSize: 12 });
+      addText(sidebar, "UIKit Ops", {
+        fontSize: 22,
+        fontWeight: 700,
+        lineHeight: "110%",
+      });
+      addText(sidebar, "Vanilla Three.js stress surface", {
+        color: 0xa7b0c0,
+        fontSize: 12,
+      });
 
       const tiers = [
         ["Light", 80],
@@ -257,31 +323,89 @@ function VanillaScene() {
       const nav = ui(Container, { flexDirection: "column", gap: 8 }, sidebar);
       for (const [label, rows] of tiers) {
         nav.add(
-          makeButton(label, rows === config.rows ? "positive" : "onMedia", () => console.log("tier", label, rows)),
+          makeButton(label, rows === config.rows ? "positive" : "onMedia", () =>
+            console.log("tier", label, rows),
+          ),
         );
       }
 
-      const meters = ui(Container, { flexDirection: "column", gap: 8, marginTop: "auto" }, sidebar);
+      const meters = ui(
+        Container,
+        { flexDirection: "column", gap: 8, marginTop: "auto" },
+        sidebar,
+      );
       addText(meters, `Rows ${config.rows}`, { color: 0xd1d5db, fontSize: 12 });
-      addText(meters, `Cards ${config.cards}`, { color: 0xd1d5db, fontSize: 12 });
-      addText(meters, `Animated ${config.motion ? "yes" : "no"}`, { color: 0xd1d5db, fontSize: 12 });
-      meters.add(makeButton(config.motion ? "Pause motion" : "Start motion", "tertiary", () => console.log("toggle motion")));
+      addText(meters, `Cards ${config.cards}`, {
+        color: 0xd1d5db,
+        fontSize: 12,
+      });
+      addText(meters, `Animated ${config.motion ? "yes" : "no"}`, {
+        color: 0xd1d5db,
+        fontSize: 12,
+      });
+      meters.add(
+        makeButton(
+          config.motion ? "Pause motion" : "Start motion",
+          "tertiary",
+          () => console.log("toggle motion"),
+        ),
+      );
     };
 
     const buildWorkspace = (parent: Container) => {
-      const workspace = ui(Container, { height: "100%", flexGrow: 1, flexShrink: 1, flexDirection: "column", gap: 12 }, parent);
+      const workspace = ui(
+        Container,
+        {
+          height: "100%",
+          flexGrow: 1,
+          flexShrink: 1,
+          flexDirection: "column",
+          gap: 12,
+        },
+        parent,
+      );
 
-      const header = ui(Container, { flexDirection: "row", alignItems: "center", gap: 12, flexShrink: 0 }, workspace);
-      const headline = ui(Container, { flexDirection: "column", gap: 2, flexGrow: 1 }, header);
-      addText(headline, "Operations Console", { fontSize: 21, fontWeight: 700, lineHeight: "110%" });
-      addText(headline, "Synthetic but dashboard-shaped: cards, controls, rows, tags, and progress.", {
-        color: 0x667085,
-        fontSize: 12,
+      const header = ui(
+        Container,
+        { flexDirection: "row", alignItems: "center", gap: 12, flexShrink: 0 },
+        workspace,
+      );
+      const headline = ui(
+        Container,
+        { flexDirection: "column", gap: 2, flexGrow: 1 },
+        header,
+      );
+      addText(headline, "Operations Console", {
+        fontSize: 21,
+        fontWeight: 700,
+        lineHeight: "110%",
       });
-      header.add(makeButton("Open issue", "primary", () => console.log("open issue")));
-      header.add(makeButton("Export", "secondary", () => console.log("export")));
+      addText(
+        headline,
+        "Synthetic but dashboard-shaped: cards, controls, rows, tags, and progress.",
+        {
+          color: 0x667085,
+          fontSize: 12,
+        },
+      );
+      header.add(
+        makeButton("Open issue", "primary", () => console.log("open issue")),
+      );
+      header.add(
+        makeButton("Export", "secondary", () => console.log("export")),
+      );
 
-      const cards = ui(Container, { height: 102, flexShrink: 0, flexDirection: "row", flexWrap: "no-wrap", gap: 10 }, workspace);
+      const cards = ui(
+        Container,
+        {
+          height: 102,
+          flexShrink: 0,
+          flexDirection: "row",
+          flexWrap: "no-wrap",
+          gap: 10,
+        },
+        workspace,
+      );
       for (let i = 0; i < config.cards; i++) {
         cards.add(makeMetricCard(i));
       }
@@ -360,13 +484,29 @@ function createBackdrop(count: number) {
   const group = new Group();
   const geometry = new BoxGeometry(0.28, 0.28, 0.28);
   const materials = [
-    new MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.55, metalness: 0.1 }),
-    new MeshStandardMaterial({ color: 0xf59e0b, roughness: 0.55, metalness: 0.1 }),
-    new MeshStandardMaterial({ color: 0x22c55e, roughness: 0.55, metalness: 0.1 }),
+    new MeshStandardMaterial({
+      color: 0x38bdf8,
+      roughness: 0.55,
+      metalness: 0.1,
+    }),
+    new MeshStandardMaterial({
+      color: 0xf59e0b,
+      roughness: 0.55,
+      metalness: 0.1,
+    }),
+    new MeshStandardMaterial({
+      color: 0x22c55e,
+      roughness: 0.55,
+      metalness: 0.1,
+    }),
   ];
   for (let i = 0; i < count; i++) {
     const mesh = new Mesh(geometry, materials[i % materials.length]!);
-    mesh.position.set((i % 8) - 3.5, -1.8 + Math.floor(i / 8) * 0.34, -2.5 - (i % 4) * 0.18);
+    mesh.position.set(
+      (i % 8) - 3.5,
+      -1.8 + Math.floor(i / 8) * 0.34,
+      -2.5 - (i % 4) * 0.18,
+    );
     mesh.rotation.set(i * 0.12, i * 0.07, 0);
     group.add(mesh);
   }
@@ -375,7 +515,10 @@ function createBackdrop(count: number) {
 
 export function VanillaExample() {
   return (
-    <UikitCanvas events={noEvents} style={{ height: "100%", touchAction: "none" }}>
+    <UikitCanvas
+      events={noEvents}
+      style={{ height: "100%", touchAction: "none" }}
+    >
       <VanillaScene />
     </UikitCanvas>
   );
