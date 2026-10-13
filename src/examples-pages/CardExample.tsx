@@ -15,16 +15,42 @@
  *  - The card hero used drei's `<MeshPortalMaterial>` + drei `<Float>` to preview
  *    the physics world. With no physics/asset that preview is empty, so the hero
  *    is replaced by a static rounded-plane mesh (kept at the same size/position).
+ *    The `<PerspectiveCamera makeDefault>` that lived in `<Content>` to look into
+ *    that portal is dropped too — see the note at `<Content>` for why keeping it
+ *    broke click hit-testing on the whole page.
  *  - Upstream wrapped the scene in `<Defaults>` from `@react-three/uikit-default`;
  *    that component does not exist in the vendored kit, so lights are mounted
  *    directly under the Canvas and the card containers under `<Root>`.
+ *  - `<PointerEvents />` + `events={noEvents}` were ADDED. Upstream's
+ *    `examples/card/src/App.tsx` has neither, so its card is inert; upstream's
+ *    other eight examples all mount `<PointerEvents />`, and uikit's panel mesh
+ *    deliberately opts out of three's raycaster (`raycast()`/`spherecast()` are
+ *    no-ops and `pointerEvents = 'none'` in `panel/instance/mesh.ts`), so the
+ *    spherecast event manager is the ONLY thing that can hit a uikit component.
+ *    Without it nothing on this page is clickable — the card never toggles and
+ *    the Switch never flips.
  *  - One `overflow="hidden"` container is kept for the slide-up layout, and
  *    per-instance clipping is implemented in this port (`panel/instance/group.ts`),
  *    so the covered card is clipped as upstream intends.
+ *  - `lineHeight={20}` on the two muted description Texts is corrected to
+ *    `lineHeight="20px"`. Upstream's `examples/card/src/App.tsx` really does
+ *    write the bare number, but per upstream's own migration guide
+ *    (`docs/migration/from-version-0.md`: "`lineHeight` without a unit is a
+ *    multiplier; with `px` it's absolute") that means 20 x fontSize = 280, and
+ *    upstream's canonical card markup in `docs/default-kit/card.mdx` uses
+ *    `"20px"`. The port renders the bare number faithfully, so the typo
+ *    survived: each description got a 280-unit line box, which stretched the
+ *    notification rows and the whole slide-up panel to roughly twice its
+ *    intended height. Because the panel is only translated up by 460 units when
+ *    closed, it could no longer hide behind the card, and the header and rows
+ *    that should be off-screen showed as a clipped grey sliver below the card
+ *    (looking like missing text). With `"20px"` the panel is short enough to
+ *    hide completely.
  */
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Environment, PerspectiveCamera } from "@react-three/drei";
+import { noEvents, PointerEvents } from "@react-three/xr/dist/events.js";
+import { Environment } from "@react-three/drei";
 import { signal } from "@preact/signals-core";
 import { easing, geometry } from "maath";
 import { UikitCanvas } from "./UikitCanvas";
@@ -62,7 +88,9 @@ export function CardExample() {
       camera={{ position: [0, 0, 18], fov: 32.5 }}
       style={{ height: "100%", touchAction: "none" }}
       gl={{ localClippingEnabled: true }}
+      events={noEvents}
     >
+      <PointerEvents />
       <ambientLight intensity={Math.PI} />
       <spotLight
         decay={0}
@@ -146,7 +174,22 @@ function CardPage() {
             <meshStandardMaterial color="#334155" />
           </mesh>
           <ambientLight intensity={Math.PI} />
-          <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={50} />
+          {/*
+            Upstream had `<PerspectiveCamera makeDefault position={[0, 0, 10]}
+            fov={50} />` here, to look into the MeshPortalMaterial physics
+            preview. That portal is not in this port, so the camera has no
+            scene to view — but `makeDefault` still made it the canvas camera,
+            and it is a child of this `Content` component. `Content` is a uikit
+            panel whose matrix carries the layout scale (4.4 x 4), so the
+            camera's `matrixWorld` inherited that non-uniform scale. The render
+            kept working (its view matrix is rebuilt from `matrixWorld`), but
+            `matrixWorldInverse` — which `Raycaster.setFromCamera` and every
+            event hit-test depend on — went stale/rigid, so the raycast camera
+            stopped matching the render camera and clicks landed in the wrong
+            place (the Switch sat ~15 world units off the ray). The canvas
+            camera from the `camera` prop plus <Rig> below is upstream's own
+            setup, so the nested camera is simply dropped.
+          */}
         </Content>
         <Container
           backgroundColor={0xffffff}
@@ -223,7 +266,7 @@ function CardPage() {
                 </Text>
                 <Text
                   fontSize={14}
-                  lineHeight={20}
+                  lineHeight="20px"
                   color={colors.mutedForeground}
                 >
                   Send notifications to device.
@@ -255,7 +298,7 @@ function CardPage() {
                     </Text>
                     <Text
                       fontSize={14}
-                      lineHeight={20}
+                      lineHeight="20px"
                       color={colors.mutedForeground}
                     >
                       {notification.description}
