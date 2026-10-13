@@ -1,0 +1,44 @@
+import type { z } from 'zod'
+import { ContainerPropertiesSchema } from '../../../../index'
+import { searchFor, BaseOutProperties, Container, InProperties, RenderContext } from '../../../../index'
+import { computed } from '@preact/signals-core'
+import { Accordion } from './index'
+import { AccordionItem } from './item'
+import { colors, componentDefaults } from '../theme'
+export const AccordionContentPropertiesSchema = ContainerPropertiesSchema
+
+export type AccordionContentProperties = z.input<typeof AccordionContentPropertiesSchema>
+
+export class AccordionContent extends Container<BaseOutProperties> {
+  constructor(
+    inputProperties?: InProperties<BaseOutProperties>,
+    initialClasses?: Array<InProperties<BaseOutProperties> | string>,
+    config?: {
+      renderContext?: RenderContext
+      defaultOverrides: InProperties<BaseOutProperties>
+    },
+  ) {
+    super(inputProperties, initialClasses, {
+      defaults: componentDefaults,
+      ...config,
+      defaultOverrides: {
+        '*': {
+          borderColor: colors.border,
+        },
+        paddingTop: 0,
+        fontSize: 14,
+        paddingBottom: 16,
+        overflow: 'hidden',
+        display: computed(() => {
+          const item = searchFor(this, AccordionItem, 2)
+          if (item == null) {
+            return 'none'
+          }
+          const accordion = searchFor(item, Accordion, 2)
+          return item.properties.value.value === accordion?.openItemValue.value ? 'flex' : 'none'
+        }),
+        ...config?.defaultOverrides,
+      },
+    })
+  }
+}

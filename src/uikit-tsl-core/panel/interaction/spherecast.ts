@@ -1,0 +1,47 @@
+import { MathUtils, Matrix4, Mesh, Object3D, Sphere, Vector2, Vector3 } from 'three'
+import { Signal } from '@preact/signals-core'
+import { RootContext } from '../../context'
+import { computeWorldToGlobalMatrix } from '../../utils'
+
+const sphereHelper = new Sphere()
+const vectorHelper = new Vector3()
+const matrixHelper = new Matrix4()
+const worldToGlobalMatrixHelper = new Matrix4()
+
+export function makePanelSpherecast(
+  root: Signal<RootContext>,
+  globalSphereWithLocalScale: Sphere,
+  globalPanelMatrixSignal: Signal<Matrix4 | undefined>,
+  object: Object3D,
+): Exclude<Mesh['spherecast'], undefined> {
+  return (sphere, intersects) => {
+    root.peek().component.updateMatrix()
+    computeWorldToGlobalMatrix(root.peek(), worldToGlobalMatrixHelper)
+    sphereHelper.copy(globalSphereWithLocalScale).applyMatrix4(worldToGlobalMatrixHelper)
+    if (!sphereHelper.intersectsSphere(sphere)) {
+      return
+    }
+    object.updateMatrixWorld(true)
+    vectorHelper.copy(sphere.center).applyMatrix4(matrixHelper.copy(object.matrixWorld).invert())
+    vectorHelper.x = MathUtils.clamp(vectorHelper.x, -0.5, 0.5)
+    vectorHelper.y = MathUtils.clamp(vectorHelper.y, -0.5, 0.5)
+    vectorHelper.z = 0
+
+    const uv = new Vector2(vectorHelper.x, vectorHelper.y)
+
+    vectorHelper.applyMatrix4(object.matrixWorld)
+    const distance = sphere.center.distanceTo(vectorHelper)
+
+    if (distance > sphere.radius) {
+      return
+    }
+
+    intersects.push({
+      distance,
+      object,
+      point: vectorHelper.clone(),
+      uv,
+      normal: new Vector3(0, 0, 1),
+    })
+  }
+}

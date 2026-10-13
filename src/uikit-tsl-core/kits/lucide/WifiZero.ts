@@ -1,0 +1,27 @@
+
+      /* eslint-disable no-shadow-restricted-names */
+      import { RenderContext, Svg, SvgProperties, SvgOutProperties, InProperties, WithSignal } from '../../index'
+      const content = `<svg class="lucide lucide-wifi-zero" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.695 19.055 C 11.464 19.130,11.255 19.300,11.128 19.516 C 11.037 19.672,11.020 19.746,11.020 20.000 C 11.020 20.257,11.036 20.327,11.133 20.492 C 11.651 21.374,12.998 21.018,12.998 20.000 C 12.998 19.623,12.792 19.281,12.463 19.112 C 12.265 19.010,11.911 18.984,11.695 19.055 " stroke="none" fill-rule="evenodd" fill="black"></path></svg>`;
+      export class WifiZeroIcon<OutProperties extends SvgOutProperties = SvgOutProperties> extends Svg<OutProperties> {
+        constructor(
+          inputProperties?: InProperties<OutProperties>,
+          initialClasses?: Array<SvgProperties | string>,
+          config?: {
+            renderContext?: RenderContext
+            defaultOverrides?: InProperties<OutProperties>
+            defaults?: WithSignal<OutProperties>
+          },
+        ) {
+          super(inputProperties, initialClasses, {
+            ...config,
+            defaultOverrides: {
+              content,
+              width: 24,
+              height: 24,
+              ...config?.defaultOverrides
+            } as InProperties<OutProperties>,
+          })
+        }
+      }
+      export const WifiZero = WifiZeroIcon
+    

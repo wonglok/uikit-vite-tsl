@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "esnext",
+    /* "node" is required by vendored uikit code (e.g. `NodeJS.Timeout`). */
+    "types": ["vite/client", "node"],
+    "allowArbitraryExtensions": true,
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /*
+     * The four flags below are deliberately OFF, and only because
+     * `src/uikit-tsl-core` is vendored from upstream @pmndrs/uikit, which is
+     * compiled with `strict` + `noUncheckedIndexedAccess` and none of these.
+     * Turning them on here produces ~311 errors in untouched upstream code
+     * (type-only imports, parameter properties, intentionally-unused
+     * constructor parameters) without finding a single real defect.
+     *
+     * Trade-off: we lose compile-time guarantees that imports are elided
+     * verbatim. esbuild still erases type-only imports correctly, and
+     * `vite build` verifies this. New app code under src/ that is NOT in
+     * uikit-tsl-core should still use explicit `import type`.
+     */
+    "verbatimModuleSyntax": false,
+    "erasableSyntaxOnly": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+
+    /* Kept on: these do catch real bugs in vendored and app code alike. */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}
