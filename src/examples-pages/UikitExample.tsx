@@ -19,6 +19,7 @@ import { Box, OrbitControls } from "@react-three/drei";
 import { noEvents, PointerEvents } from "@react-three/xr/dist/events.js";
 import { Container, Fullscreen, Image, Text } from "../uikit-tsl-core/react";
 import { UikitCanvas } from "./UikitCanvas";
+import { imagePath } from "../sample-images/paths";
 
 export function UikitExample() {
   return (
@@ -36,7 +37,8 @@ export function UikitExample() {
             Hello World
           </Text>
         </Container>
-        <Image src="https://picsum.photos/id/237/200/300" width={100} />
+        {/* Local 512x512 PNG — see src/sample-images/. */}
+        <Image src={imagePath("uikit-hero")} width={100} />
       </Fullscreen>
     </UikitCanvas>
   );

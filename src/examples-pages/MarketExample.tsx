@@ -45,6 +45,7 @@ import {
 } from "../uikit-tsl-core/kits/default/react";
 import { create } from "zustand";
 import { noEvents, PointerEvents } from "@react-three/xr/dist/events.js";
+import { imagePath } from "../sample-images/paths";
 
 interface Album {
   name: string;
@@ -56,22 +57,22 @@ const listenNowAlbums: Album[] = [
   {
     name: "React Rendezvous",
     artist: "Ethan Byte",
-    cover: "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+    cover: imagePath("market:React Rendezvous"),
   },
   {
     name: "Async Awakenings",
     artist: "Nina Netcode",
-    cover: "https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80",
+    cover: imagePath("market:Async Awakenings"),
   },
   {
     name: "The Art of Reusability",
     artist: "Lena Logic",
-    cover: "https://images.unsplash.com/photo-1528143358888-6d3c7f67bd5d?w=300&dpr=2&q=80",
+    cover: imagePath("market:The Art of Reusability"),
   },
   {
     name: "Stateful Symphony",
     artist: "Beth Binary",
-    cover: "https://images.unsplash.com/photo-1490300472339-79e4adc6be4a?w=300&dpr=2&q=80",
+    cover: imagePath("market:Stateful Symphony"),
   },
 ];
 
@@ -79,32 +80,32 @@ const madeForYouAlbums: Album[] = [
   {
     name: "Thinking Components",
     artist: "Lena Logic",
-    cover: "https://images.unsplash.com/photo-1615247001958-f4bc92fa6a4a?w=300&dpr=2&q=80",
+    cover: imagePath("market:Thinking Components"),
   },
   {
     name: "Functional Fury",
     artist: "Beth Binary",
-    cover: "https://images.unsplash.com/photo-1513745405825-efaf9a49315f?w=300&dpr=2&q=80",
+    cover: imagePath("market:Functional Fury"),
   },
   {
     name: "React Rendezvous",
     artist: "Ethan Byte",
-    cover: "https://images.unsplash.com/photo-1614113489855-66422ad300a4?w=300&dpr=2&q=80",
+    cover: imagePath("market:React Rendezvous"),
   },
   {
     name: "Stateful Symphony",
     artist: "Beth Binary",
-    cover: "https://images.unsplash.com/photo-1446185250204-f94591f7d702?w=300&dpr=2&q=80",
+    cover: imagePath("market:Stateful Symphony"),
   },
   {
     name: "Async Awakenings",
     artist: "Nina Netcode",
-    cover: "https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80",
+    cover: imagePath("market:Async Awakenings"),
   },
   {
     name: "The Art of Reusability",
     artist: "Lena Logic",
-    cover: "https://images.unsplash.com/photo-1490300472339-79e4adc6be4a?w=300&dpr=2&q=80",
+    cover: imagePath("market:The Art of Reusability"),
   },
 ];
 

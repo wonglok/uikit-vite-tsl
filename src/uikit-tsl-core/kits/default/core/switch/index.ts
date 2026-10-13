@@ -50,7 +50,7 @@ export class Switch extends Container<SwitchOutProperties> {
         alignItems: 'center',
         opacity: computed(() => (this.properties.value.disabled ? 0.5 : undefined)),
         borderRadius: 1000,
-        backgroundColor: computed(() => (this.currentSignal.value ? colors.primary.value : colors.input.value)),
+        backgroundColor: 0x0000ff,
         cursor: computed(() => (this.properties.value.disabled ? undefined : 'pointer')),
         onClick: computed(() => {
           return this.properties.value.disabled
@@ -78,7 +78,7 @@ export class Switch extends Container<SwitchOutProperties> {
           height: 20,
           borderRadius: 1000,
           transformTranslateX: computed(() => (this.currentSignal.value ? 20 : 0)),
-          backgroundColor: colors.background,
+          backgroundColor: 0xff0000,
         },
       })),
     )

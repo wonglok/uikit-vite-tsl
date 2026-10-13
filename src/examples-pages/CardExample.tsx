@@ -18,9 +18,9 @@
  *  - Upstream wrapped the scene in `<Defaults>` from `@react-three/uikit-default`;
  *    that component does not exist in the vendored kit, so lights are mounted
  *    directly under the Canvas and the card containers under `<Root>`.
- *  - One `overflow="hidden"` container is kept for the slide-up layout, but
- *    per-instance clipping is disabled in this TSL port, so the covered card is
- *    not visually clipped (this is the intended reveal effect here).
+ *  - One `overflow="hidden"` container is kept for the slide-up layout, and
+ *    per-instance clipping is implemented in this port (`panel/instance/group.ts`),
+ *    so the covered card is clipped as upstream intends.
  */
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
@@ -37,6 +37,7 @@ import {
   setPreferredColorScheme,
 } from "../uikit-tsl-core/react";
 import { BellRing, Check } from "../uikit-tsl-core/kits/lucide/react";
+import { avatarPath } from "../sample-images/paths";
 import {
   Avatar,
   Button,
@@ -172,20 +173,17 @@ function CardPage() {
             </Text>
           </Container>
           <Container flexDirection="row">
-            <Avatar
-              width={40}
-              src="https://avatar.iran.liara.run/public/boy?username=Scot"
-            />
-            <Avatar
-              marginLeft={-6}
-              width={40}
-              src="https://avatar.iran.liara.run/public/boy?username=Theo"
-            />
-            <Avatar
-              marginLeft={-6}
-              width={40}
-              src="https://avatar.iran.liara.run/public/boy?username=Paul"
-            />
+            {/*
+              Local 512x512 PNGs rather than the upstream
+              `https://avatar.iran.liara.run/...` URLs: that host sends no
+              `Access-Control-Allow-Origin` header, so every avatar was blocked
+              and silently failed to render. Seeded by the upstream username so
+              each one keeps its own colour, deterministically. See
+              src/sample-images/.
+            */}
+            <Avatar width={40} src={avatarPath("Scot")} />
+            <Avatar marginLeft={-6} width={40} src={avatarPath("Theo")} />
+            <Avatar marginLeft={-6} width={40} src={avatarPath("Paul")} />
           </Container>
         </Container>
       </Container>

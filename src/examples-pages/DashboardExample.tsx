@@ -33,6 +33,7 @@ import { create } from "zustand";
 import { computed } from "@preact/signals-core";
 import { Euler, Matrix4, Quaternion, Vector3 } from "three";
 import { noEvents, PointerEvents } from "@react-three/xr/dist/events.js";
+import { avatarPath, imagePath } from "../sample-images/paths";
 import {
   Container,
   Content,
@@ -274,8 +275,8 @@ function DashboardPage({ dialog }: { dialog: VanillaDialog | null }) {
                     <DollarSign width={16} height={16} color={colors.mutedForeground} />
                   </CardHeader>
                   <CardContent alignItems="center" flexShrink={0} flexDirection="column">
-                    {/* Upstream rendered a local `mac-draco.glb`; remote placeholder instead. */}
-                    <Image src="https://picsum.photos/seed/macbook/400/300" width={280} height={200} maxWidth="50%" />
+                    {/* Upstream rendered a local `mac-draco.glb`; local placeholder image instead. */}
+                    <Image src={imagePath("dashboard-macbook")} width={280} height={200} maxWidth="50%" />
                   </CardContent>
                 </Card>
                 <Card flexDirection="column" flexBasis={0} flexGrow={1}>
@@ -425,7 +426,7 @@ function TeamSwitcher(props: Omit<ComponentPropsWithoutRef<typeof Button>, "chil
         marginRight={8}
         height={20}
         width={20}
-        src={`https://avatar.iran.liara.run/public/boy?username=${selectedTeam?.value}`}
+        src={avatarPath(`${selectedTeam?.value}`)}
       />
       <Text>{selectedTeam?.label}</Text>
       <ChevronDown marginLeft="auto" height={20} width={20} flexShrink={0} opacity={0.5} />
@@ -475,7 +476,7 @@ function UserNav({ dialog }: { dialog: VanillaDialog | null }) {
     <DialogTriggerWrapper dialog={dialog}>
       <Avatar
         cursor="pointer"
-        src="https://avatar.iran.liara.run/public/boy?username=Alicia"
+        src={avatarPath("Alicia")}
         height={32}
         width={32}
       />
@@ -567,7 +568,7 @@ function RecentSales() {
           <Avatar
             height={36}
             width={36}
-            src={`https://avatar.iran.liara.run/public/boy?username=${sale.avatar}`}
+            src={avatarPath(sale.avatar)}
           />
           <Container flexDirection="column" marginLeft={16} gap={4}>
             <Text fontSize={14} lineHeight="100%" fontWeight="medium">

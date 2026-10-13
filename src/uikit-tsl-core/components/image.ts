@@ -9,7 +9,7 @@ import {
 import { Signal, computed, effect, signal } from '@preact/signals-core'
 import { BaseOutProperties, InProperties, WithSignal } from '../properties/index'
 import { Component } from './component'
-import { SRGBColorSpace, Texture, TextureLoader, Vector2Tuple } from 'three'
+import { Matrix3, SRGBColorSpace, Texture, TextureLoader, Vector2Tuple } from 'three'
 import { abortableEffect, loadResourceWithParams, setupMatrixWorldUpdate } from '../utils'
 import {
   createPanelMaterial,
@@ -235,13 +235,21 @@ export class Image<
       const boundsRatioValue = (width - left - right) / (height - top - bottom)
 
       if (textureRatio > boundsRatioValue) {
-        texture.matrix
-          .translate(-(0.5 * (boundsRatioValue - textureRatio)) / boundsRatioValue, 0)
-          .scale(boundsRatioValue / textureRatio, 1)
+        composeTranslateScale(
+          texture.matrix,
+          -(0.5 * (boundsRatioValue - textureRatio)) / boundsRatioValue,
+          0,
+          boundsRatioValue / textureRatio,
+          1,
+        )
       } else {
-        texture.matrix
-          .translate(0, -(0.5 * (textureRatio - boundsRatioValue)) / textureRatio)
-          .scale(1, textureRatio / boundsRatioValue)
+        composeTranslateScale(
+          texture.matrix,
+          0,
+          -(0.5 * (textureRatio - boundsRatioValue)) / textureRatio,
+          1,
+          textureRatio / boundsRatioValue,
+        )
       }
       transformInsideBorder(borderInset, size, texture)
     }, this.abortSignal)
@@ -287,6 +295,27 @@ export class Image<
   }
 }
 
+const SCRATCH_TRANSLATION = new Matrix3()
+const SCRATCH_SCALE = new Matrix3()
+
+/**
+ * `matrix.translate(tx, ty).scale(sx, sy)` without the deprecated
+ * Matrix3.translate/scale methods.
+ *
+ * `makeTranslation`/`makeScale` OVERWRITE their target rather than accumulate,
+ * so the deprecated setters are not interchangeable with them in general.
+ * The deprecated `.translate()`/`.scale()` post-multiplied onto the current
+ * matrix, so this composes the same way via `multiply` — translate first, then
+ * scale, which leaves the translation scaled by the scale. It intentionally
+ * does NOT reset `matrix` first: `transformInsideBorder` runs on top of the
+ * object-fit 'cover' transform, which an extra `identity()` would wipe.
+ */
+function composeTranslateScale(matrix: Matrix3, tx: number, ty: number, sx: number, sy: number): Matrix3 {
+  matrix.multiply(SCRATCH_TRANSLATION.makeTranslation(tx, ty))
+  matrix.multiply(SCRATCH_SCALE.makeScale(sx, sy))
+  return matrix
+}
+
 function transformInsideBorder(borderInset: Inset, size: Vector2Tuple, texture: Texture): void {
   const [outerWidth, outerHeight] = size
   const [top, right, bottom, left] = borderInset
@@ -294,9 +323,13 @@ function transformInsideBorder(borderInset: Inset, size: Vector2Tuple, texture: 
   const width = outerWidth - left - right
   const height = outerHeight - top - bottom
 
-  texture.matrix
-    .translate(-1 + (left + width) / outerWidth, -1 + (top + height) / outerHeight)
-    .scale(outerWidth / width, outerHeight / height)
+  composeTranslateScale(
+    texture.matrix,
+    -1 + (left + width) / outerWidth,
+    -1 + (top + height) / outerHeight,
+    outerWidth / width,
+    outerHeight / height,
+  )
 }
 
 const textureLoader = new TextureLoader()

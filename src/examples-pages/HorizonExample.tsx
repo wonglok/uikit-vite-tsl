@@ -50,9 +50,9 @@ import { GithubIcon } from "../uikit-tsl-core/kits/lucide/react";
 import { noEvents, PointerEvents } from "@react-three/xr/dist/events.js";
 import { firaCode } from "@pmndrs/msdfonts/fira-code";
 import { useState } from "react";
+import { avatarPath } from "../sample-images/paths";
 
-const avatarSrc =
-  "https://raw.githubusercontent.com/pmndrs/uikit/refs/heads/main/examples/horizon/public/avatar.png";
+const avatarSrc = avatarPath("horizon");
 
 function AvatarDemo() {
   return (

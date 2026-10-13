@@ -111,6 +111,19 @@ export function createPanelMaterial<T extends MaterialClass>(
   material.transparent = true
   material.clipShadows = true
   material.shadowSide = FrontSide
+  /*
+   * Kept for upstream parity, but on WebGPU it does NOTHING: the string
+   * `toneMapped` does not appear anywhere in three's WebGPU build. Tone mapping
+   * is decided per-render from the RENDERER, not per material
+   * (`RenderOutputNode.setup` reads `renderer.toneMapping`), so upstream's way of
+   * keeping panels out of the tone-mapping curve has no equivalent here.
+   *
+   * The panels are therefore only un-tonemapped because `examples-pages/UikitCanvas.tsx`
+   * renders with NoToneMapping. Anything that renders these panels through a
+   * renderer with tone mapping on — R3F's default is ACESFilmic, which turns the
+   * theme's pure white into ~#e3e3e3 and flattens every light surface into the
+   * same grey — will get washed-out colours.
+   */
   material.toneMapped = false
 
   let dataColumns: [AnyNode, AnyNode, AnyNode, AnyNode]

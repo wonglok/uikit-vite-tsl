@@ -7,9 +7,9 @@
  *    not vendored and `Video` is unverified in this port.
  *  - The `label` demo, which upstream also leaves commented out.
  *
- * Per-instance clipping is disabled in this port, so the `TabsList` `overflow="scroll"`
- * does not actually clip; layout is otherwise unchanged. Every demo component below is
- * inlined from `examples/default/src/components/*`.
+ * Per-instance clipping is implemented in this port (`panel/instance/group.ts`), so the
+ * `TabsList` `overflow="scroll"` clips as upstream intends. Every demo component below
+ * is inlined from `examples/default/src/components/*`.
  *
  * The upstream `useState` calls (tab selection + preferred color scheme, and the progress
  * demo's animated value) are held in `zustand` stores instead, per this project's state
@@ -106,6 +106,7 @@ import {
 } from "../uikit-tsl-core/kits/default/react";
 import { signal } from "@preact/signals-core";
 import { noEvents, PointerEvents } from "@react-three/xr/dist/events.js";
+import { avatarPath } from "../sample-images/paths";
 
 function AccordionDemo() {
   return (
@@ -198,7 +199,7 @@ function AlertDialogDemo() {
 function AvatarDemo() {
   return (
     <Container alignItems="center">
-      <Avatar src="https://picsum.photos/100/100" />
+      <Avatar src={avatarPath("default-avatar")} />
     </Container>
   );
 }

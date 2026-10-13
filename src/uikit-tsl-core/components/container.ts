@@ -103,6 +103,9 @@ export class Container<OutProperties extends BaseOutProperties = BaseOutProperti
 
     //scrolling:
     setupScrollbars(this, parentClippingRect, this.orderInfo, panelGroupDeps)
+    // TEMP DEBUG (switch thumb investigation) — remove.
+    ;(globalThis as any).__containers ??= []
+    ;(globalThis as any).__containers.push(this)
   }
 
   clone(recursive?: boolean): this {
