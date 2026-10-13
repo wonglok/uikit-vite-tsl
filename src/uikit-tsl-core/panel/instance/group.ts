@@ -103,9 +103,6 @@ export class InstancedPanelGroup {
 
   private activateElement = (element: InstancedPanel, bucket: Bucket<InstancedPanel>, indexInBucket: number) => {
     const index = bucket.offset + indexInBucket
-    // TEMP DEBUG (switch thumb investigation) — remove.
-    ;(globalThis as any).__actLog ??= []
-    ;(globalThis as any).__actLog.push({ index, t: Math.round(performance.now()) })
     this.instanceData.set(element.materialConfig.defaultData, 16 * index)
     this.markDataUpdated(16 * index, 16)
     element.activate(bucket, indexInBucket)
@@ -116,15 +113,9 @@ export class InstancedPanelGroup {
   }
 
   private bufferCopyWithin = (targetIndex: number, startIndex: number, endIndex: number) => {
-    // TEMP DEBUG (switch thumb investigation) — remove.
-    ;(globalThis as any).__cpLog ??= []
-    ;(globalThis as any).__cpLog.push({
-      targetIndex,
-      startIndex,
-      endIndex,
-      t: Math.round(performance.now()),
-      arrSame: this.instanceData.array === (globalThis as any).__groups?.[0]?.instanceData?.array,
-    })
+    if (endIndex <= startIndex) {
+      return
+    }
     copyWithinAttribute(this.instanceMatrix, targetIndex, startIndex, endIndex)
     copyWithinAttribute(this.instanceData, targetIndex, startIndex, endIndex)
     copyWithinAttribute(this.instanceClipping, targetIndex, startIndex, endIndex)
@@ -133,9 +124,25 @@ export class InstancedPanelGroup {
      * interleaved buffer, which nothing else refreshes on a bucket move. Without
      * this the moved instances keep rendering the previous occupant's descriptor
      * (which is exactly a black/blank panel at a stale index).
+     *
+     * THE RANGE IS A UNION, NOT `[first, endIndex)`.
+     * `copyWithin(target, start, end)` modifies the SOURCE window `[start, end)`
+     * *and* the DESTINATION window `[target, target + (end - start))`, and the
+     * destination runs PAST `end` whenever `target > start` — which is the
+     * common case here, because the arrays are packed from the start and moves
+     * go left-to-right. Scattering only up to `endIndex` therefore leaves the
+     * last written instance stale. That is not hypothetical: it is exactly what
+     * made the `Switch` thumb invisible. The final bucket move of the default
+     * example's panel group is `(target 7, start 6, end 8)`, which writes
+     * instances 7 *and* 8 while scattering only 6 and 7 — so the thumb's
+     * descriptor never reached the GPU, its interleaved descriptor stayed all
+     * zero, its quad degenerated to zero area, and the grey track rendered
+     * alone. Every earlier move happened to be repaired by a later
+     * `activateElement`; the last one had nothing after it.
      */
-    const first = Math.min(targetIndex, startIndex)
-    this.scatter(first, endIndex - first)
+    const first = Math.min(startIndex, targetIndex)
+    const last = Math.max(endIndex, targetIndex + (endIndex - startIndex))
+    this.scatter(first, last - first)
   }
 
   private clearBufferAt = (index: number) => {
@@ -152,9 +159,6 @@ export class InstancedPanelGroup {
     private readonly orderInfo: OrderInfo,
     private readonly panelGroupProperties: Required<PanelGroupProperties>,
   ) {
-    // TEMP DEBUG (switch thumb investigation) — remove.
-    ;(globalThis as any).__groups ??= []
-    ;(globalThis as any).__groups.push(this)
     const materialClass = resolvePanelMaterialClassProperty(panelGroupProperties.panelMaterialClass)
     this.instanceMaterial = createPanelMaterial(materialClass, { type: 'instanced' })
     this.instanceMaterial.depthTest = panelGroupProperties.depthTest
@@ -173,9 +177,6 @@ export class InstancedPanelGroup {
     this.instanceData.needsUpdate = true
     const first = Math.floor(offset / 16)
     const last = Math.floor((offset + Math.max(count, 1) - 1) / 16)
-    // TEMP DEBUG (switch thumb investigation) — remove.
-    ;(globalThis as any).__markLog ??= []
-    ;(globalThis as any).__markLog.push({ offset, count, first, last, t: performance.now() })
     this.scatter(first, last - first + 1)
   }
 
@@ -199,16 +200,6 @@ export class InstancedPanelGroup {
    * debug than this is to run.
    */
   private scatter(startInstance: number, count: number): void {
-    // TEMP DEBUG (switch thumb investigation) — remove.
-    ;(globalThis as any).__scatterLog ??= []
-    ;(globalThis as any).__scatterLog.push({
-      start: startInstance,
-      count,
-      t: performance.now(),
-      nullBuffer: this.descriptorBuffer == null,
-      covers8: startInstance <= 8 && 8 < startInstance + count,
-      src8Color: this.instanceData ? Array.from(this.instanceData.array.slice(128 + 4, 128 + 8)) : null,
-    })
     if (this.descriptorBuffer == null) {
       return
     }

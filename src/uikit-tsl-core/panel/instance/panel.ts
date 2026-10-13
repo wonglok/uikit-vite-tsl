@@ -56,15 +56,6 @@ export class InstancedPanel {
             return
           }
           const { instanceData, instanceDataOnUpdate: instanceDataAddUpdateRange, root } = this.group
-          // TEMP DEBUG (switch thumb investigation) — remove.
-          ;(globalThis as any).__setLog ??= []
-          ;(globalThis as any).__setLog.push({
-            key,
-            index,
-            cb: instanceDataAddUpdateRange != null,
-            arrSame: instanceData.array === (globalThis as any).__groups?.[0]?.instanceData?.array,
-            t: Math.round(performance.now()),
-          })
           setters[key as string]!(
             instanceData.array,
             instanceData.itemSize * index,
