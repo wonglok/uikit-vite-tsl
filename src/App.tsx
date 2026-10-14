@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ComponentType } from "react";
 import {
-  BrowserRouter,
+  HashRouter,
   Link,
   Route,
   Routes,
@@ -140,7 +140,15 @@ function HomePage() {
 
 function App() {
   return (
-    <BrowserRouter>
+    /*
+     * HashRouter, not BrowserRouter: this is a static SPA on Vercel, and a
+     * BrowserRouter deep link (`/example/lucide`) only resolves if the host
+     * rewrites every unmatched path back to index.html. Under hash routing the
+     * route lives in the fragment, so any URL the host is willing to serve
+     * index.html for — including none of them, i.e. just `/` — reaches the
+     * right page.
+     */
+    <HashRouter>
       <div className="h-full w-full overflow-auto">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -158,7 +166,7 @@ function App() {
           />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
