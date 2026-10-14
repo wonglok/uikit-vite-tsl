@@ -3,8 +3,8 @@
  * inline `<Svg>` markup (the Acme mark and the GitHub logo). `UserAuthForm` is inlined
  * from `examples/auth/src/components/user-auth-form.tsx`.
  *
- * Per-instance clipping is disabled in this port, so the `overflow="hidden"` marketing
- * column does not actually clip; layout is otherwise unchanged.
+ * The `overflow="hidden"` marketing column really does clip, `<Svg>` included (see
+ * `panel/material/clip.ts`).
  */
 import { useFrame } from "@react-three/fiber";
 import {

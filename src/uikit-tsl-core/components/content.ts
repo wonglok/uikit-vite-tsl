@@ -7,6 +7,7 @@ import { ElementType, OrderInfo, setupOrderInfo, setupRenderOrder } from '../ord
 import { setupInstancedPanel } from '../panel/instance/setup'
 import { getDefaultPanelMaterialConfig } from '../panel/material/config'
 import { writeColor } from '../panel/material/color'
+import { applyClippingToNodeMaterial } from '../panel/material/clip'
 import { Component } from './component'
 import { computedPanelGroupDependencies } from '../panel/instance/properties'
 import { BaseOutProperties, InProperties, Properties, WithSignal } from '../properties/index'
@@ -250,7 +251,15 @@ export class Content<
         return
       }
       setupRenderOrder(descendant, this.root, this.orderInfo)
-      descendant.material.clippingPlanes = this.clippingPlanes
+      /*
+       * Clipping for a plain `Mesh` descendant (the shapes of an `Svg`, or a mesh
+       * the caller nested into a text/content component). `material.clippingPlanes`
+       * — what upstream set here — is WebGL-only; WebGPURenderer never reads it,
+       * which is why these meshes used to spill out of their scroll container.
+       * Classic WebGL materials have no node graph to inject into and stay
+       * unclipped on WebGPU.
+       */
+      applyClippingToNodeMaterial(descendant.material, this.clippingPlanes)
       descendant.material.needsUpdate = true
       descendant.material.transparent = true
       descendant.raycast = makeClippedCast(

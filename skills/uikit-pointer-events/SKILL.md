@@ -53,7 +53,9 @@ import { canvasInputProps } from "../uikit-tsl-core/react";
 
 ## Related canvas settings
 
-- `gl={{ localClippingEnabled: true }}` — set it on any page with a clipping panel.
+- `gl={{ localClippingEnabled: true }}` — a WebGL-only flag that does nothing on WebGPU; kept
+  for parity. Clipping happens inside the materials instead (see
+  [[uikit-overflow-scroll-clipping]]).
 - `frameloop="demand"` — the static pages (`auth`, `dashboard`, `market`) use this plus a
   frame counter to prove the scene really only renders when something changes.
 - `camera={{ position: [0, 0, 18], fov: 35 }}` — the flat-UI pages all use this camera.

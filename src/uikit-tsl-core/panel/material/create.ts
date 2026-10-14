@@ -23,24 +23,31 @@
  */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FrontSide } from 'three'
-import type { Material } from 'three'
+import type { Material, Plane } from 'three'
 import {
   attribute,
   float,
   materialColor,
   materialOpacity,
   positionLocal,
+  positionWorld,
   uniform,
   uv,
   vec4,
 } from 'three/tsl'
+import { createClipPlaneUniforms } from './clip'
 import { createPanelSurface } from './shader'
 
 export type MaterialClass = { new (...args: Array<any>): Material }
 
 export type PanelMaterialInfo =
   | { type: 'instanced' }
-  | { type: 'normal'; data: Float32Array }
+  /**
+   * `clippingPlanes` is the component's `createGlobalClippingPlanes()` array —
+   * live `RelativePlane`s in world space, read every frame, so passing the array
+   * once is enough. Omit it for an unclipped panel.
+   */
+  | { type: 'normal'; data: Float32Array; clippingPlanes?: ReadonlyArray<Plane> }
 
 export type PanelMaterial = Material & {
   colorNode?: unknown
@@ -138,6 +145,9 @@ export function createPanelMaterial<T extends MaterialClass>(
     ) as [AnyNode, AnyNode, AnyNode, AnyNode]
   } else {
     dataColumns = uniformColumns(info.data).columns
+    if (info.clippingPlanes != null) {
+      clippingPlanes = createClipPlaneUniforms(() => info.clippingPlanes)
+    }
   }
 
   /*
@@ -151,11 +161,15 @@ export function createPanelMaterial<T extends MaterialClass>(
    * attributes (aClipping0..3) exactly as the scatter already writes them — no
    * CPU baking of planes and no extra per-instance bandwidth.
    *
-   * The non-instanced material has no clipping planes (upstream ran the clip
-   * loop only in its instanced branch), so localPosition stays null there and
-   * `createPanelSurface` skips the loop.
+   * The NON-INSTANCED material takes the other route (see `./clip`): `Image` and
+   * `Video` are standalone meshes, so their planes arrive as world-space uniforms
+   * and the matching position is `positionWorld`. Upstream ran the clip loop only
+   * in its instanced branch, which is exactly why those components never clipped
+   * here — handing the planes to `material.clippingPlanes` does nothing on
+   * WebGPURenderer.
    */
-  const localPosition = info.type === 'instanced' ? positionLocal : null
+  const localPosition =
+    info.type === 'instanced' ? positionLocal : info.clippingPlanes != null ? positionWorld : null
 
   /*
    * TEXTURES (`material.map`) — read them through three's own material nodes.
@@ -192,7 +206,7 @@ export function createPanelMaterial<T extends MaterialClass>(
     background: dataColumns[1],
     borderAndRadius: dataColumns[2],
     dimensions: dataColumns[3],
-    clippingPlanes: localPosition ? clippingPlanes : null,
+    clippingPlanes: localPosition == null ? null : clippingPlanes,
     localPosition,
     normal: null,
     tangent: null,

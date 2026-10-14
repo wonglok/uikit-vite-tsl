@@ -1,3 +1,4 @@
+export * from './clip'
 export * from './color'
 export * from './config'
 export * from './create'

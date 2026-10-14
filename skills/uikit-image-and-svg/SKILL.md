@@ -8,6 +8,11 @@ description: Renders bitmap images (Image) and inline SVG (Svg) inside uikit pan
 `Image` draws a texture into the layout box. `Svg` rasterises inline markup. Both are layout
 citizens — they size, clip and position like any `Container`.
 
+Clipping is real for both: `Image`/`Video` clip through the non-instanced panel material and
+`Svg`'s shapes through its own node material, both fed world-space clip planes from
+`panel/material/clip.ts`. That matters because `material.clippingPlanes` — what upstream used
+— is ignored by `WebGPURenderer`. A `Svg` clips to its **parent container's** box.
+
 ## `Image`
 
 ```tsx

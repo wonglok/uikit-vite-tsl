@@ -193,9 +193,14 @@ export interface PanelSurfaceInput {
   borderAndRadius: AnyNode
   /** `data[3]` — border opacity, bend, width/height. */
   dimensions: AnyNode
-  /** Four clipping planes in instance-local space, or null when unclipped. */
+  /** Four clipping planes, or null when unclipped. */
   clippingPlanes: [AnyNode, AnyNode, AnyNode, AnyNode] | null
-  /** `instanceMatrix * position`; required only when `clippingPlanes` is set. */
+  /**
+   * Fragment position **in the space `clippingPlanes` are expressed in** — required
+   * only when `clippingPlanes` is set. The instanced panel passes `positionLocal`
+   * (`instanceMatrix * position`, matching its per-instance attributes); everything
+   * that clips through world space plane uniforms (`./clip`) passes `positionWorld`.
+   */
   localPosition: AnyNode | null
   /** Current normal, when the material supports border bend; else null. */
   normal: AnyNode | null
@@ -399,11 +404,15 @@ export function createPanelSurface(input: PanelSurfaceInput): PanelSurfaceOutput
 }
 
 /**
- * Per-instance clipping. Upstream discarded as soon as the accumulated opacity
- * fell below 0.01; we accumulate the product and let the caller discard once,
- * which is equivalent and avoids mid-expression control flow.
+ * Clipping. Upstream discarded as soon as the accumulated opacity fell below
+ * 0.01; we accumulate the product and let the caller discard once, which is
+ * equivalent and avoids mid-expression control flow.
+ *
+ * Shared with `./clip` — the instanced panel path passes `positionLocal` and its
+ * per-instance attributes; the non-instanced one passes `positionWorld` and world
+ * space plane uniforms. `position` must be in the same space as `planes`.
  */
-function clipOpacityFor(
+export function clipOpacityFor(
   planes: [AnyNode, AnyNode, AnyNode, AnyNode],
   localPosition: AnyNode | null,
 ): AnyNode | null {

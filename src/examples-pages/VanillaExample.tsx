@@ -16,8 +16,7 @@
  * an effect inside an inner component that reads the renderer, camera and scene
  * from `useThree()`. R3F owns the render loop (no manual `WebGLRenderer`,
  * `setAnimationLoop` or resize handling), and `forwardHtmlEvents` is pumped from
- * `useFrame`. `overflow="scroll"` is kept for layout only — clipping is disabled
- * in the TSL port.
+ * `useFrame`. `overflow="scroll"` clips and scrolls normally.
  *
  * The scene renders through `UikitCanvas` (WebGPURenderer) — the port's TSL
  * materials have no GLSL fallback.

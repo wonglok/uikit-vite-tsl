@@ -5,8 +5,9 @@
  * asset is not vendored and `Video` is unverified in this port. Everything else is inlined
  * from `examples/market/src/*` (data + `Menu`/`Sidebar`/`AlbumArtwork` components).
  *
- * Per-instance clipping is disabled in this port, so the `overflow="scroll"` containers do
- * not actually clip; layout is otherwise unchanged.
+ * Clipping works: `overflow="scroll"` containers really do cut their content, including the
+ * album-art `<Image>` tiles that scroll under the sidebar (see
+ * `panel/material/clip.ts` for how non-panel renderables are clipped on WebGPU).
  */
 import { useFrame } from "@react-three/fiber";
 import { UikitCanvas } from "./UikitCanvas";

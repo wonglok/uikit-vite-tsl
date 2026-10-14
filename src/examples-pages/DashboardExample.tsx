@@ -13,8 +13,7 @@
  *  - The avatars pointed at local `/uikit/examples/dashboard/*.png` files;
  *    they now use remote avatar URLs.
  *  - The page is wrapped in `overflow="scroll"`. Scrolling layout still works,
- *    but per-instance clipping is disabled in this TSL port, so the content is
- *    not visually clipped to the viewport.
+ *    and clipping works in this TSL port, so the content is cut at the viewport.
  *  - `Portal` (upstream does not use it here) is avoided as instructed.
  */
 import { useState } from "react";

@@ -44,7 +44,7 @@ Usage — the three props are not optional:
 <UikitCanvas
   events={noEvents}                          // hand events to PointerEvents, not three's raycaster
   style={{ height: "100dvh", touchAction: "none" }}
-  gl={{ localClippingEnabled: true }}         // needed wherever a panel clips
+  gl={{ localClippingEnabled: true }}         // WebGL-only flag; keep for parity, WebGPU clips in the material
 >
   <PointerEvents />
   <Fullscreen>…</Fullscreen>

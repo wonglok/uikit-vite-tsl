@@ -48,7 +48,7 @@ The three hot paths that were GLSL are now TSL, each documented at length in its
 file header:
 
 - **`src/uikit-tsl-core/panel/material/shader.ts`** — the panel surface maths: rounded-corner
-  SDF coverage, border blending, per-instance clipping and opacity. Upstream's 16-float
+  SDF coverage, border blending, clipping and opacity. Upstream's 16-float
   descriptor layout is preserved verbatim.
 - **`src/uikit-tsl-core/panel/material/create.ts`** — material construction and the
   instanced-attribute binding that TSL actually accepts.
@@ -164,7 +164,7 @@ not a technical requirement.
 ### `skills/`
 
 22 short notes capturing the non-obvious parts of working in this port (canvas setup,
-per-instance clipping, the horizon panel caveat, runtime TTF atlases, signals vs. state, and
+clipping and scrolling, the horizon panel caveat, runtime TTF atlases, signals vs. state, and
 so on). They are written for agents and humans alike; start there before debugging a blank
 panel.
 

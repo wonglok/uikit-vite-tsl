@@ -106,7 +106,15 @@ export class Image<
     )
 
     const data = new Float32Array(16)
-    const info = { data: data, type: 'normal' } as const
+    /*
+     * `clippingPlanes` goes through `PanelMaterialInfo`, which is what actually
+     * makes an `<Image>` clip: the non-instanced panel material binds the planes as
+     * world-space uniforms and folds them into alpha (`panel/material/clip.ts`).
+     * Assigning `material.clippingPlanes` (what upstream did, and what the two
+     * shadow materials below still do) does nothing on WebGPURenderer — that is why
+     * scrolled album art used to paint straight over neighbouring panels.
+     */
+    const info = { data: data, type: 'normal', clippingPlanes } as const
     // TSL port: these are factories now, not classes.
     const depthMaterial = createPanelDepthMaterial(info)
     const distanceMaterial = createPanelDistanceMaterial(info)
@@ -133,7 +141,6 @@ export class Image<
         resolvePanelMaterialClassProperty(this.properties.value.panelMaterialClass),
         info,
       )
-      material.clippingPlanes = clippingPlanes
       ;(material as any).map = (this.material as any).map
       material.depthWrite = this.material.depthWrite
       material.depthTest = this.material.depthTest

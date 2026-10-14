@@ -6,9 +6,8 @@
  * container.
  *
  * Notes on this port:
- *  - `overflow="scroll"` is kept for layout, but per-instance clipping is
- *    disabled in the TSL port, so the icon list overflows its box instead of
- *    being clipped/scrolled.
+ *  - `overflow="scroll"` clips and scrolls: the icons are `Svg` subclasses, which
+ *    clip through the same node-material path as any other content.
  *  - Nothing else was omitted (the upstream example uses no Portal or assets).
  */
 import { UikitCanvas } from "./UikitCanvas";

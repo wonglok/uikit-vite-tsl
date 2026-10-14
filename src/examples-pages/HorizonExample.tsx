@@ -11,8 +11,8 @@
  *  - `DropdownAvatar src="./avatar.png"` pointed at a local asset, which is
  *    not vendored; it reuses the same remote avatar URL as `AvatarDemo`.
  *  - `overflow="scroll"` on the `RadioGroup` is kept for layout, but
- *    per-instance clipping is disabled in the TSL port, so the tab strip does
- *    not clip/scroll its overflowing items.
+ *    and clipping works in the TSL port, so the tab strip cuts its overflowing
+ *    items.
  *  - No `Portal` is used (upstream does not use one here).
  */
 import { UikitCanvas } from "./UikitCanvas";

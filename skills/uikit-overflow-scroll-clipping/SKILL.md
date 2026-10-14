@@ -30,24 +30,36 @@ Both are present in this port:
 |---|---|
 | Clip rectangle maths | `src/uikit-tsl-core/clipping.ts` (`ClippingRect`) |
 | 16 clip floats per panel instance | `panel/instance/group.ts:29-33`, `:336-341` |
-| Clip planes bound into the material | `panel/material/create.ts:136`, `:195` |
+| Clip planes bound into the instanced material | `panel/material/create.ts:136`, `:195` |
+| Clip planes for everything else (`Image`, `Video`, `Svg`, node-material `Custom`, nested meshes) | `panel/material/clip.ts` (`createClipPlaneUniforms`, `applyClippingToNodeMaterial`) |
 | Wheel / pointer scroll | `scroll.ts:57` (`setupScrollHandlers`), `:243` (`setupScroll`) |
 | Scrollbars | `scroll.ts:392` (`setupScrollbars`) |
 | Scroll translation matrix | `scroll.ts:32` (`computedGlobalScrollMatrix`) |
 
-**Clipping only applies on the instanced path.** `createPanelMaterial` supplies clipping
-attributes when `info.type === 'instanced'` and passes `clippingPlanes: null` otherwise — in
-the non-instanced branch `localPosition` stays null and `createPanelSurface` skips the clip
-loop (`panel/material/create.ts:130-154`). So a panel that renders through the non-instanced
-material will not clip, while the ordinary instanced panel does.
+**Two paths clip, both in the material's node graph.**
 
-> Several example headers in `src/examples-pages/` still say "per-instance clipping is
-> disabled in the TSL port" (dashboard, vanilla, market, lucide). Those comments predate the
-> current implementation — `CardExample.tsx:33` describes the same feature as implemented, and
-> the code above agrees with it. Verify at runtime if a page depends on it, and treat the
-> stale comments as a known inconsistency rather than a spec.
+1. **Instanced panels** (a `Container`/`Content`/`Text` background) carry the planes as
+   per-instance attributes: `aClipping0..3` (`panel/instance/group.ts:29-33`, `:336-341`),
+   consumed with `positionLocal`.
+2. **Everything else** goes through `panel/material/clip.ts`: four `vec4` uniforms holding the
+   planes in **world** space, resolved live once per rendered frame, multiplied into opacity by
+   the same `clipOpacityFor`. That covers `Image`/`Video` (the non-instanced panel material),
+   `Svg` shape meshes, `Custom` and any `Mesh` nested in a `Content` — provided the material is
+   a **node material**; `applyClippingToNodeMaterial` returns false for classic WebGL materials
+   (`new MeshStandardMaterial()`), which cannot be clipped under WebGPU at all.
 
-## Why the materials do it this way
+**Why the second path exists:** upstream handed the planes to `material.clippingPlanes` (+
+`renderer.localClippingEnabled`). **`WebGPURenderer` never reads `material.clippingPlanes`** —
+in three 0.186 the only reader is `ClippingContext` for `ClippingGroup` scene nodes
+(`renderers/common/Renderer.js` `_projectObject` → `getGroupContext`). Every such assignment in
+this port is dead on WebGPU, which is why images and SVGs used to spill out of their scroll
+containers while panels clipped correctly.
+
+Known gaps, unchanged: `overflow` on a `Content` is a no-op (only `Container` computes a
+`clippingRect`, and a `Content` clips to its **parent's** rect); a classic-material `Custom` or
+nested mesh still does not clip.
+
+## Why the instanced materials do it this way
 
 Clip planes are expressed in the panel mesh's **local** space — exactly the space
 `instanceMatrix * position` lives in. TSL exposes no `instanceMatrix` accessor, but it does not

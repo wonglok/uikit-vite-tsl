@@ -7,9 +7,8 @@
  * used by the upstream benchmark harness.
  *
  * Notes on this port:
- *  - No omissions. The example does not use Portal, clipping or local assets.
- *  - `overflow="scroll"` on the work surface is kept for layout only; clipping
- *    is disabled in the TSL port.
+ *  - No omissions. The example does not use Portal or local assets.
+ *  - `overflow="scroll"` on the work surface clips and scrolls normally.
  */
 import { useFrame, useThree } from "@react-three/fiber";
 import { UikitCanvas } from "./UikitCanvas";

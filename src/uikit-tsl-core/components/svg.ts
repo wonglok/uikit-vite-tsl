@@ -1,4 +1,6 @@
-import { Material, Mesh, MeshBasicMaterial, ShapeGeometry, Vector3 } from 'three'
+import { Color, Material, Mesh, ShapeGeometry, Vector3 } from 'three'
+import { MeshBasicNodeMaterial } from 'three/webgpu'
+import { applyClippingToNodeMaterial } from '../panel/material/index'
 import { BoundingBox, Content, type ContentOutProperties, contentOutPropertiesSchema } from './content'
 import { computed, signal } from '@preact/signals-core'
 import { abortableEffect, loadResourceWithParams } from '../utils'
@@ -53,6 +55,7 @@ export class Svg<OutProperties extends SvgOutProperties = SvgOutProperties> exte
         src: this.properties.value.src,
         content: this.properties.value.content,
       })),
+      this.createShapeMaterial,
     )
     abortableEffect(() => {
       const result = svgResult.value
@@ -73,6 +76,22 @@ export class Svg<OutProperties extends SvgOutProperties = SvgOutProperties> exte
     throw new Error(`the svg component can not have any children`)
   }
 
+  /**
+   * One material per SVG path colour, shared by that path's shapes.
+   *
+   * A node material rather than `MeshBasicMaterial`: an SVG is clipped by the
+   * surrounding scroll/overflow container like any other content, and on WebGPU
+   * that clip can only live in the node graph (`../panel/material/clip.ts`) —
+   * `material.clippingPlanes`, which the `Content` traversal assigns to these
+   * meshes, is ignored by the renderer. `applyClippingToNodeMaterial` registers
+   * the material so the same traversal does not wrap the clip in twice.
+   */
+  private readonly createShapeMaterial = (color: Color): Material => {
+    const material = new MeshBasicNodeMaterial({ color, toneMapped: false })
+    applyClippingToNodeMaterial(material, this.clippingPlanes)
+    return material
+  }
+
   clone(recursive?: boolean): this {
     const cloned = new Svg(this.inputProperties, this.initialClasses, this.inputConfig) as this
     this.copyInto(cloned, recursive)
@@ -83,13 +102,16 @@ export class Svg<OutProperties extends SvgOutProperties = SvgOutProperties> exte
 const svgCache = new Map<string, Promise<SVGResult>>()
 const loader = new SVGLoader()
 
-async function loadSvg({
-  src,
-  content,
-}: {
-  src?: string
-  content?: string
-}): Promise<{ meshes: Array<Mesh>; boundingBox?: BoundingBox } | undefined> {
+async function loadSvg(
+  {
+    src,
+    content,
+  }: {
+    src?: string
+    content?: string
+  },
+  createMaterial: (color: Color) => Material,
+): Promise<{ meshes: Array<Mesh>; boundingBox?: BoundingBox } | undefined> {
   if (src == null && content == null) {
     return undefined
   }
@@ -111,7 +133,7 @@ async function loadSvg({
      * the instance method directly is the identical result without the warning.
      */
     const shapes = path.toShapes()
-    const material = new MeshBasicMaterial({ color: path.color, toneMapped: false })
+    const material = createMaterial(path.color)
 
     for (const shape of shapes) {
       const mesh = new Mesh(new ShapeGeometry(shape), material)
