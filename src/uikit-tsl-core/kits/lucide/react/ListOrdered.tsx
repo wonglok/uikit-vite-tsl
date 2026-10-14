@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ListOrderedIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaListOrderedIcon>
-> = /*@__PURE__*/ build<VanillaListOrderedIcon, SvgProperties>(VanillaListOrderedIcon)
+> = /*@__PURE__*/ build<VanillaListOrderedIcon, SvgProperties>(VanillaListOrderedIcon, "VanillaListOrderedIcon")
 export const ListOrdered: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaListOrderedIcon>
 > = ListOrderedIcon

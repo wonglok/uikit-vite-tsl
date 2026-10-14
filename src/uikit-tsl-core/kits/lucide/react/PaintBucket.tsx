@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const PaintBucketIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaPaintBucketIcon>
-> = /*@__PURE__*/ build<VanillaPaintBucketIcon, SvgProperties>(VanillaPaintBucketIcon)
+> = /*@__PURE__*/ build<VanillaPaintBucketIcon, SvgProperties>(VanillaPaintBucketIcon, "VanillaPaintBucketIcon")
 export const PaintBucket: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaPaintBucketIcon>
 > = PaintBucketIcon

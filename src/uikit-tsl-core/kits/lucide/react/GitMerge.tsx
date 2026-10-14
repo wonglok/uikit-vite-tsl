@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const GitMergeIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGitMergeIcon>
-> = /*@__PURE__*/ build<VanillaGitMergeIcon, SvgProperties>(VanillaGitMergeIcon)
+> = /*@__PURE__*/ build<VanillaGitMergeIcon, SvgProperties>(VanillaGitMergeIcon, "VanillaGitMergeIcon")
 export const GitMerge: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGitMergeIcon>
 > = GitMergeIcon

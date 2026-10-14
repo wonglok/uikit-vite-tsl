@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const BrainCircuitIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBrainCircuitIcon>
-> = /*@__PURE__*/ build<VanillaBrainCircuitIcon, SvgProperties>(VanillaBrainCircuitIcon)
+> = /*@__PURE__*/ build<VanillaBrainCircuitIcon, SvgProperties>(VanillaBrainCircuitIcon, "VanillaBrainCircuitIcon")
 export const BrainCircuit: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBrainCircuitIcon>
 > = BrainCircuitIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const AirplayIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAirplayIcon>
-> = /*@__PURE__*/ build<VanillaAirplayIcon, SvgProperties>(VanillaAirplayIcon)
+> = /*@__PURE__*/ build<VanillaAirplayIcon, SvgProperties>(VanillaAirplayIcon, "VanillaAirplayIcon")
 export const Airplay: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAirplayIcon>
 > = AirplayIcon

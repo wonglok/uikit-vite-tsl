@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const StickyNoteIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaStickyNoteIcon>
-> = /*@__PURE__*/ build<VanillaStickyNoteIcon, SvgProperties>(VanillaStickyNoteIcon)
+> = /*@__PURE__*/ build<VanillaStickyNoteIcon, SvgProperties>(VanillaStickyNoteIcon, "VanillaStickyNoteIcon")
 export const StickyNote: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaStickyNoteIcon>
 > = StickyNoteIcon

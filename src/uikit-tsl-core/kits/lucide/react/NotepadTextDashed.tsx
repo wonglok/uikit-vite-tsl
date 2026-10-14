@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const NotepadTextDashedIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaNotepadTextDashedIcon>
-> = /*@__PURE__*/ build<VanillaNotepadTextDashedIcon, SvgProperties>(VanillaNotepadTextDashedIcon)
+> = /*@__PURE__*/ build<VanillaNotepadTextDashedIcon, SvgProperties>(VanillaNotepadTextDashedIcon, "VanillaNotepadTextDashedIcon")
 export const NotepadTextDashed: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaNotepadTextDashedIcon>
 > = NotepadTextDashedIcon

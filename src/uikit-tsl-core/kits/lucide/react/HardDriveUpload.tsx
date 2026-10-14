@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const HardDriveUploadIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaHardDriveUploadIcon>
-> = /*@__PURE__*/ build<VanillaHardDriveUploadIcon, SvgProperties>(VanillaHardDriveUploadIcon)
+> = /*@__PURE__*/ build<VanillaHardDriveUploadIcon, SvgProperties>(VanillaHardDriveUploadIcon, "VanillaHardDriveUploadIcon")
 export const HardDriveUpload: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaHardDriveUploadIcon>
 > = HardDriveUploadIcon

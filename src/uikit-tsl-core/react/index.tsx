@@ -89,14 +89,23 @@ export {
   type TextareaProperties as VanillaTextareaProperties,
 } from '../index'
 
-export const Container = /* @__PURE__ */ build<VanillaContainer, ContainerProperties>(VanillaContainer)
-export const Content = /* @__PURE__ */ build<VanillaContent, ContentProperties>(VanillaContent)
-export const Custom = /* @__PURE__ */ build<VanillaCustom, CustomProperties>(VanillaCustom)
-export const Image = /* @__PURE__ */ build<VanillaImage, ImageProperties>(VanillaImage)
-export const Video = /* @__PURE__ */ build<VanillaVideo, VideoProperties>(VanillaVideo)
-export const Input = /* @__PURE__ */ build<VanillaInput, InputProperties>(VanillaInput)
-export const Svg = /* @__PURE__ */ build<VanillaSvg, SvgProperties>(VanillaSvg)
-export const Textarea = /* @__PURE__ */ build<VanillaTextarea, TextareaProperties>(VanillaTextarea)
+/*
+ * Every wrapper is given its element name explicitly, exactly as the kits do.
+ * `build` defaults it to `Component.name`, and the production build minifies
+ * class names — every module ends up with classes called `e`, so the elements
+ * registered as `Vanillae` overwrite each other and JSX resolves to whichever
+ * class happened to be registered last (`<Container>` became an `Svg`, which
+ * then threw "the svg component can not have any children" on its children).
+ * Passing the name keeps the R3F catalogue keys literal in every build.
+ */
+export const Container = /* @__PURE__ */ build<VanillaContainer, ContainerProperties>(VanillaContainer, "VanillaContainer")
+export const Content = /* @__PURE__ */ build<VanillaContent, ContentProperties>(VanillaContent, "VanillaContent")
+export const Custom = /* @__PURE__ */ build<VanillaCustom, CustomProperties>(VanillaCustom, "VanillaCustom")
+export const Image = /* @__PURE__ */ build<VanillaImage, ImageProperties>(VanillaImage, "VanillaImage")
+export const Video = /* @__PURE__ */ build<VanillaVideo, VideoProperties>(VanillaVideo, "VanillaVideo")
+export const Input = /* @__PURE__ */ build<VanillaInput, InputProperties>(VanillaInput, "VanillaInput")
+export const Svg = /* @__PURE__ */ build<VanillaSvg, SvgProperties>(VanillaSvg, "VanillaSvg")
+export const Textarea = /* @__PURE__ */ build<VanillaTextarea, TextareaProperties>(VanillaTextarea, "VanillaTextarea")
 
 export const Fullscreen = /* @__PURE__ */ (() => {
   extend({ VanillaFullscreen })

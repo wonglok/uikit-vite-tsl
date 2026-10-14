@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ArrowUpAZIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaArrowUpAZIcon>
-> = /*@__PURE__*/ build<VanillaArrowUpAZIcon, SvgProperties>(VanillaArrowUpAZIcon)
+> = /*@__PURE__*/ build<VanillaArrowUpAZIcon, SvgProperties>(VanillaArrowUpAZIcon, "VanillaArrowUpAZIcon")
 export const ArrowUpAZ: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaArrowUpAZIcon>
 > = ArrowUpAZIcon

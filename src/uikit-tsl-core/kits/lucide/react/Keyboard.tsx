@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const KeyboardIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaKeyboardIcon>
-> = /*@__PURE__*/ build<VanillaKeyboardIcon, SvgProperties>(VanillaKeyboardIcon)
+> = /*@__PURE__*/ build<VanillaKeyboardIcon, SvgProperties>(VanillaKeyboardIcon, "VanillaKeyboardIcon")
 export const Keyboard: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaKeyboardIcon>
 > = KeyboardIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const BookDashedIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBookDashedIcon>
-> = /*@__PURE__*/ build<VanillaBookDashedIcon, SvgProperties>(VanillaBookDashedIcon)
+> = /*@__PURE__*/ build<VanillaBookDashedIcon, SvgProperties>(VanillaBookDashedIcon, "VanillaBookDashedIcon")
 export const BookDashed: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBookDashedIcon>
 > = BookDashedIcon

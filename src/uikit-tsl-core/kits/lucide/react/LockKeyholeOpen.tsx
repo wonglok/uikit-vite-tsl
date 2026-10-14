@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const LockKeyholeOpenIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLockKeyholeOpenIcon>
-> = /*@__PURE__*/ build<VanillaLockKeyholeOpenIcon, SvgProperties>(VanillaLockKeyholeOpenIcon)
+> = /*@__PURE__*/ build<VanillaLockKeyholeOpenIcon, SvgProperties>(VanillaLockKeyholeOpenIcon, "VanillaLockKeyholeOpenIcon")
 export const LockKeyholeOpen: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLockKeyholeOpenIcon>
 > = LockKeyholeOpenIcon

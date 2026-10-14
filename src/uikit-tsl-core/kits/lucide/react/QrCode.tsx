@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const QrCodeIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaQrCodeIcon>
-> = /*@__PURE__*/ build<VanillaQrCodeIcon, SvgProperties>(VanillaQrCodeIcon)
+> = /*@__PURE__*/ build<VanillaQrCodeIcon, SvgProperties>(VanillaQrCodeIcon, "VanillaQrCodeIcon")
 export const QrCode: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaQrCodeIcon>
 > = QrCodeIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FlaskConicalIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFlaskConicalIcon>
-> = /*@__PURE__*/ build<VanillaFlaskConicalIcon, SvgProperties>(VanillaFlaskConicalIcon)
+> = /*@__PURE__*/ build<VanillaFlaskConicalIcon, SvgProperties>(VanillaFlaskConicalIcon, "VanillaFlaskConicalIcon")
 export const FlaskConical: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFlaskConicalIcon>
 > = FlaskConicalIcon

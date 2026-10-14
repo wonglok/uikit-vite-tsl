@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ChartBarStackedIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChartBarStackedIcon>
-> = /*@__PURE__*/ build<VanillaChartBarStackedIcon, SvgProperties>(VanillaChartBarStackedIcon)
+> = /*@__PURE__*/ build<VanillaChartBarStackedIcon, SvgProperties>(VanillaChartBarStackedIcon, "VanillaChartBarStackedIcon")
 export const ChartBarStacked: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChartBarStackedIcon>
 > = ChartBarStackedIcon

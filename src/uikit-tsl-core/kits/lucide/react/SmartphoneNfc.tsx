@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SmartphoneNfcIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSmartphoneNfcIcon>
-> = /*@__PURE__*/ build<VanillaSmartphoneNfcIcon, SvgProperties>(VanillaSmartphoneNfcIcon)
+> = /*@__PURE__*/ build<VanillaSmartphoneNfcIcon, SvgProperties>(VanillaSmartphoneNfcIcon, "VanillaSmartphoneNfcIcon")
 export const SmartphoneNfc: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSmartphoneNfcIcon>
 > = SmartphoneNfcIcon

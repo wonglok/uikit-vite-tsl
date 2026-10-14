@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const NonBinaryIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaNonBinaryIcon>
-> = /*@__PURE__*/ build<VanillaNonBinaryIcon, SvgProperties>(VanillaNonBinaryIcon)
+> = /*@__PURE__*/ build<VanillaNonBinaryIcon, SvgProperties>(VanillaNonBinaryIcon, "VanillaNonBinaryIcon")
 export const NonBinary: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaNonBinaryIcon>
 > = NonBinaryIcon

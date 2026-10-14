@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FastForwardIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFastForwardIcon>
-> = /*@__PURE__*/ build<VanillaFastForwardIcon, SvgProperties>(VanillaFastForwardIcon)
+> = /*@__PURE__*/ build<VanillaFastForwardIcon, SvgProperties>(VanillaFastForwardIcon, "VanillaFastForwardIcon")
 export const FastForward: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFastForwardIcon>
 > = FastForwardIcon

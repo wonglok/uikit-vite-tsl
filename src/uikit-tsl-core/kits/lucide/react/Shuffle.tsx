@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ShuffleIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaShuffleIcon>
-> = /*@__PURE__*/ build<VanillaShuffleIcon, SvgProperties>(VanillaShuffleIcon)
+> = /*@__PURE__*/ build<VanillaShuffleIcon, SvgProperties>(VanillaShuffleIcon, "VanillaShuffleIcon")
 export const Shuffle: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaShuffleIcon>
 > = ShuffleIcon

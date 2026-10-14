@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const DockIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaDockIcon>
-> = /*@__PURE__*/ build<VanillaDockIcon, SvgProperties>(VanillaDockIcon)
+> = /*@__PURE__*/ build<VanillaDockIcon, SvgProperties>(VanillaDockIcon, "VanillaDockIcon")
 export const Dock: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaDockIcon>
 > = DockIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ChartSplineIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChartSplineIcon>
-> = /*@__PURE__*/ build<VanillaChartSplineIcon, SvgProperties>(VanillaChartSplineIcon)
+> = /*@__PURE__*/ build<VanillaChartSplineIcon, SvgProperties>(VanillaChartSplineIcon, "VanillaChartSplineIcon")
 export const ChartSpline: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChartSplineIcon>
 > = ChartSplineIcon

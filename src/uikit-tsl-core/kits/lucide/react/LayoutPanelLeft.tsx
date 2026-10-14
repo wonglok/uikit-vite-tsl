@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const LayoutPanelLeftIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLayoutPanelLeftIcon>
-> = /*@__PURE__*/ build<VanillaLayoutPanelLeftIcon, SvgProperties>(VanillaLayoutPanelLeftIcon)
+> = /*@__PURE__*/ build<VanillaLayoutPanelLeftIcon, SvgProperties>(VanillaLayoutPanelLeftIcon, "VanillaLayoutPanelLeftIcon")
 export const LayoutPanelLeft: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLayoutPanelLeftIcon>
 > = LayoutPanelLeftIcon

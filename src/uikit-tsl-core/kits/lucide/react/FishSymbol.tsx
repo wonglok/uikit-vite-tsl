@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FishSymbolIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFishSymbolIcon>
-> = /*@__PURE__*/ build<VanillaFishSymbolIcon, SvgProperties>(VanillaFishSymbolIcon)
+> = /*@__PURE__*/ build<VanillaFishSymbolIcon, SvgProperties>(VanillaFishSymbolIcon, "VanillaFishSymbolIcon")
 export const FishSymbol: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFishSymbolIcon>
 > = FishSymbolIcon

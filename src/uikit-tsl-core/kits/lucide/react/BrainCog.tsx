@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const BrainCogIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBrainCogIcon>
-> = /*@__PURE__*/ build<VanillaBrainCogIcon, SvgProperties>(VanillaBrainCogIcon)
+> = /*@__PURE__*/ build<VanillaBrainCogIcon, SvgProperties>(VanillaBrainCogIcon, "VanillaBrainCogIcon")
 export const BrainCog: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBrainCogIcon>
 > = BrainCogIcon

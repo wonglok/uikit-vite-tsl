@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const UtilityPoleIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaUtilityPoleIcon>
-> = /*@__PURE__*/ build<VanillaUtilityPoleIcon, SvgProperties>(VanillaUtilityPoleIcon)
+> = /*@__PURE__*/ build<VanillaUtilityPoleIcon, SvgProperties>(VanillaUtilityPoleIcon, "VanillaUtilityPoleIcon")
 export const UtilityPole: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaUtilityPoleIcon>
 > = UtilityPoleIcon

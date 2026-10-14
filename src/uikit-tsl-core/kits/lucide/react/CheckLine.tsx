@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CheckLineIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCheckLineIcon>
-> = /*@__PURE__*/ build<VanillaCheckLineIcon, SvgProperties>(VanillaCheckLineIcon)
+> = /*@__PURE__*/ build<VanillaCheckLineIcon, SvgProperties>(VanillaCheckLineIcon, "VanillaCheckLineIcon")
 export const CheckLine: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCheckLineIcon>
 > = CheckLineIcon

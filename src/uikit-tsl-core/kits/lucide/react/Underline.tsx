@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const UnderlineIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaUnderlineIcon>
-> = /*@__PURE__*/ build<VanillaUnderlineIcon, SvgProperties>(VanillaUnderlineIcon)
+> = /*@__PURE__*/ build<VanillaUnderlineIcon, SvgProperties>(VanillaUnderlineIcon, "VanillaUnderlineIcon")
 export const Underline: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaUnderlineIcon>
 > = UnderlineIcon

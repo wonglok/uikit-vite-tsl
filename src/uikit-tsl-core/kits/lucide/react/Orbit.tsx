@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const OrbitIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaOrbitIcon>
-> = /*@__PURE__*/ build<VanillaOrbitIcon, SvgProperties>(VanillaOrbitIcon)
+> = /*@__PURE__*/ build<VanillaOrbitIcon, SvgProperties>(VanillaOrbitIcon, "VanillaOrbitIcon")
 export const Orbit: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaOrbitIcon>
 > = OrbitIcon

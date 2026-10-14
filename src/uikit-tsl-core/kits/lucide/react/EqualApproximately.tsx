@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const EqualApproximatelyIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaEqualApproximatelyIcon>
-> = /*@__PURE__*/ build<VanillaEqualApproximatelyIcon, SvgProperties>(VanillaEqualApproximatelyIcon)
+> = /*@__PURE__*/ build<VanillaEqualApproximatelyIcon, SvgProperties>(VanillaEqualApproximatelyIcon, "VanillaEqualApproximatelyIcon")
 export const EqualApproximately: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaEqualApproximatelyIcon>
 > = EqualApproximatelyIcon

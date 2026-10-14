@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const EarOffIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaEarOffIcon>
-> = /*@__PURE__*/ build<VanillaEarOffIcon, SvgProperties>(VanillaEarOffIcon)
+> = /*@__PURE__*/ build<VanillaEarOffIcon, SvgProperties>(VanillaEarOffIcon, "VanillaEarOffIcon")
 export const EarOff: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaEarOffIcon>
 > = EarOffIcon

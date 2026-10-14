@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const TangentIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTangentIcon>
-> = /*@__PURE__*/ build<VanillaTangentIcon, SvgProperties>(VanillaTangentIcon)
+> = /*@__PURE__*/ build<VanillaTangentIcon, SvgProperties>(VanillaTangentIcon, "VanillaTangentIcon")
 export const Tangent: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTangentIcon>
 > = TangentIcon

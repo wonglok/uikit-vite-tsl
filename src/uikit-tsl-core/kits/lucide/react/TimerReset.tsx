@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const TimerResetIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTimerResetIcon>
-> = /*@__PURE__*/ build<VanillaTimerResetIcon, SvgProperties>(VanillaTimerResetIcon)
+> = /*@__PURE__*/ build<VanillaTimerResetIcon, SvgProperties>(VanillaTimerResetIcon, "VanillaTimerResetIcon")
 export const TimerReset: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTimerResetIcon>
 > = TimerResetIcon

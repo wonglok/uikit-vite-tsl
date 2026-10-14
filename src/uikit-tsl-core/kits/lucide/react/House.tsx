@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const HouseIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaHouseIcon>
-> = /*@__PURE__*/ build<VanillaHouseIcon, SvgProperties>(VanillaHouseIcon)
+> = /*@__PURE__*/ build<VanillaHouseIcon, SvgProperties>(VanillaHouseIcon, "VanillaHouseIcon")
 export const House: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaHouseIcon>
 > = HouseIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const MoveDownLeftIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMoveDownLeftIcon>
-> = /*@__PURE__*/ build<VanillaMoveDownLeftIcon, SvgProperties>(VanillaMoveDownLeftIcon)
+> = /*@__PURE__*/ build<VanillaMoveDownLeftIcon, SvgProperties>(VanillaMoveDownLeftIcon, "VanillaMoveDownLeftIcon")
 export const MoveDownLeft: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMoveDownLeftIcon>
 > = MoveDownLeftIcon

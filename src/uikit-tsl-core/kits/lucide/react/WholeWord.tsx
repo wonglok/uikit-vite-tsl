@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const WholeWordIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWholeWordIcon>
-> = /*@__PURE__*/ build<VanillaWholeWordIcon, SvgProperties>(VanillaWholeWordIcon)
+> = /*@__PURE__*/ build<VanillaWholeWordIcon, SvgProperties>(VanillaWholeWordIcon, "VanillaWholeWordIcon")
 export const WholeWord: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWholeWordIcon>
 > = WholeWordIcon

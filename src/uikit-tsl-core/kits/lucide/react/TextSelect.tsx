@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const TextSelectIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTextSelectIcon>
-> = /*@__PURE__*/ build<VanillaTextSelectIcon, SvgProperties>(VanillaTextSelectIcon)
+> = /*@__PURE__*/ build<VanillaTextSelectIcon, SvgProperties>(VanillaTextSelectIcon, "VanillaTextSelectIcon")
 export const TextSelect: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTextSelectIcon>
 > = TextSelectIcon

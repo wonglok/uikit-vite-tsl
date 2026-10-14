@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const AppWindowIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAppWindowIcon>
-> = /*@__PURE__*/ build<VanillaAppWindowIcon, SvgProperties>(VanillaAppWindowIcon)
+> = /*@__PURE__*/ build<VanillaAppWindowIcon, SvgProperties>(VanillaAppWindowIcon, "VanillaAppWindowIcon")
 export const AppWindow: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAppWindowIcon>
 > = AppWindowIcon

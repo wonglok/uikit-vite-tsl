@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CalendarHeartIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCalendarHeartIcon>
-> = /*@__PURE__*/ build<VanillaCalendarHeartIcon, SvgProperties>(VanillaCalendarHeartIcon)
+> = /*@__PURE__*/ build<VanillaCalendarHeartIcon, SvgProperties>(VanillaCalendarHeartIcon, "VanillaCalendarHeartIcon")
 export const CalendarHeart: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCalendarHeartIcon>
 > = CalendarHeartIcon

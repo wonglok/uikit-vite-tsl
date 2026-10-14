@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const GitCommitHorizontalIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGitCommitHorizontalIcon>
-> = /*@__PURE__*/ build<VanillaGitCommitHorizontalIcon, SvgProperties>(VanillaGitCommitHorizontalIcon)
+> = /*@__PURE__*/ build<VanillaGitCommitHorizontalIcon, SvgProperties>(VanillaGitCommitHorizontalIcon, "VanillaGitCommitHorizontalIcon")
 export const GitCommitHorizontal: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGitCommitHorizontalIcon>
 > = GitCommitHorizontalIcon

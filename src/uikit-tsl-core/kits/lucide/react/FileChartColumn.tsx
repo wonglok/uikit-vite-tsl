@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FileChartColumnIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFileChartColumnIcon>
-> = /*@__PURE__*/ build<VanillaFileChartColumnIcon, SvgProperties>(VanillaFileChartColumnIcon)
+> = /*@__PURE__*/ build<VanillaFileChartColumnIcon, SvgProperties>(VanillaFileChartColumnIcon, "VanillaFileChartColumnIcon")
 export const FileChartColumn: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFileChartColumnIcon>
 > = FileChartColumnIcon

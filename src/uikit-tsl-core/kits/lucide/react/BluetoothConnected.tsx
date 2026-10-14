@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const BluetoothConnectedIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBluetoothConnectedIcon>
-> = /*@__PURE__*/ build<VanillaBluetoothConnectedIcon, SvgProperties>(VanillaBluetoothConnectedIcon)
+> = /*@__PURE__*/ build<VanillaBluetoothConnectedIcon, SvgProperties>(VanillaBluetoothConnectedIcon, "VanillaBluetoothConnectedIcon")
 export const BluetoothConnected: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBluetoothConnectedIcon>
 > = BluetoothConnectedIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const WatchIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWatchIcon>
-> = /*@__PURE__*/ build<VanillaWatchIcon, SvgProperties>(VanillaWatchIcon)
+> = /*@__PURE__*/ build<VanillaWatchIcon, SvgProperties>(VanillaWatchIcon, "VanillaWatchIcon")
 export const Watch: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWatchIcon>
 > = WatchIcon

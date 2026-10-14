@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const TramFrontIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTramFrontIcon>
-> = /*@__PURE__*/ build<VanillaTramFrontIcon, SvgProperties>(VanillaTramFrontIcon)
+> = /*@__PURE__*/ build<VanillaTramFrontIcon, SvgProperties>(VanillaTramFrontIcon, "VanillaTramFrontIcon")
 export const TramFront: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTramFrontIcon>
 > = TramFrontIcon

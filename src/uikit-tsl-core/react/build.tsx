@@ -10,6 +10,13 @@ declare module 'three' {
   }
 }
 
+/**
+ * `name` becomes the R3F catalogue key (`Vanilla${name}`) and the JSX element
+ * (`vanilla${name}`), so pass it explicitly for every component: the default,
+ * `Component.name`, is whatever the class was called after minification — the
+ * production build names most classes `e`, the keys collide, and JSX silently
+ * resolves to the last class registered under that key.
+ */
 export function build<T extends Component, P>(Component: { new (): T }, name = Component.name) {
   extend({ [`Vanilla${name}`]: Component })
   return forwardRef<T, P>(({ children, ...props }: any, forwardRef) => {

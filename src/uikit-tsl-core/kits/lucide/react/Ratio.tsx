@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const RatioIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRatioIcon>
-> = /*@__PURE__*/ build<VanillaRatioIcon, SvgProperties>(VanillaRatioIcon)
+> = /*@__PURE__*/ build<VanillaRatioIcon, SvgProperties>(VanillaRatioIcon, "VanillaRatioIcon")
 export const Ratio: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRatioIcon>
 > = RatioIcon

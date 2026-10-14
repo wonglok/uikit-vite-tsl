@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const OptionIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaOptionIcon>
-> = /*@__PURE__*/ build<VanillaOptionIcon, SvgProperties>(VanillaOptionIcon)
+> = /*@__PURE__*/ build<VanillaOptionIcon, SvgProperties>(VanillaOptionIcon, "VanillaOptionIcon")
 export const Option: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaOptionIcon>
 > = OptionIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SignpostBigIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSignpostBigIcon>
-> = /*@__PURE__*/ build<VanillaSignpostBigIcon, SvgProperties>(VanillaSignpostBigIcon)
+> = /*@__PURE__*/ build<VanillaSignpostBigIcon, SvgProperties>(VanillaSignpostBigIcon, "VanillaSignpostBigIcon")
 export const SignpostBig: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSignpostBigIcon>
 > = SignpostBigIcon

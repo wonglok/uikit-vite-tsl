@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FileJsonIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFileJsonIcon>
-> = /*@__PURE__*/ build<VanillaFileJsonIcon, SvgProperties>(VanillaFileJsonIcon)
+> = /*@__PURE__*/ build<VanillaFileJsonIcon, SvgProperties>(VanillaFileJsonIcon, "VanillaFileJsonIcon")
 export const FileJson: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFileJsonIcon>
 > = FileJsonIcon

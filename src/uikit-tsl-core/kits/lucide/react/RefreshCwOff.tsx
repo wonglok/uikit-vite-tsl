@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const RefreshCwOffIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRefreshCwOffIcon>
-> = /*@__PURE__*/ build<VanillaRefreshCwOffIcon, SvgProperties>(VanillaRefreshCwOffIcon)
+> = /*@__PURE__*/ build<VanillaRefreshCwOffIcon, SvgProperties>(VanillaRefreshCwOffIcon, "VanillaRefreshCwOffIcon")
 export const RefreshCwOff: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRefreshCwOffIcon>
 > = RefreshCwOffIcon

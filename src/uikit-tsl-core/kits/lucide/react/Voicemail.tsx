@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const VoicemailIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaVoicemailIcon>
-> = /*@__PURE__*/ build<VanillaVoicemailIcon, SvgProperties>(VanillaVoicemailIcon)
+> = /*@__PURE__*/ build<VanillaVoicemailIcon, SvgProperties>(VanillaVoicemailIcon, "VanillaVoicemailIcon")
 export const Voicemail: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaVoicemailIcon>
 > = VoicemailIcon

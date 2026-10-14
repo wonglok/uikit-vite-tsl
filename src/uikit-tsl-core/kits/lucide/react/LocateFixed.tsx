@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const LocateFixedIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLocateFixedIcon>
-> = /*@__PURE__*/ build<VanillaLocateFixedIcon, SvgProperties>(VanillaLocateFixedIcon)
+> = /*@__PURE__*/ build<VanillaLocateFixedIcon, SvgProperties>(VanillaLocateFixedIcon, "VanillaLocateFixedIcon")
 export const LocateFixed: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLocateFixedIcon>
 > = LocateFixedIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FacebookIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFacebookIcon>
-> = /*@__PURE__*/ build<VanillaFacebookIcon, SvgProperties>(VanillaFacebookIcon)
+> = /*@__PURE__*/ build<VanillaFacebookIcon, SvgProperties>(VanillaFacebookIcon, "VanillaFacebookIcon")
 export const Facebook: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFacebookIcon>
 > = FacebookIcon

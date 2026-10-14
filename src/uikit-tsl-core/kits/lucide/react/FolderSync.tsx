@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FolderSyncIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFolderSyncIcon>
-> = /*@__PURE__*/ build<VanillaFolderSyncIcon, SvgProperties>(VanillaFolderSyncIcon)
+> = /*@__PURE__*/ build<VanillaFolderSyncIcon, SvgProperties>(VanillaFolderSyncIcon, "VanillaFolderSyncIcon")
 export const FolderSync: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFolderSyncIcon>
 > = FolderSyncIcon

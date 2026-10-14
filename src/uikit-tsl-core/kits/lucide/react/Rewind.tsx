@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const RewindIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRewindIcon>
-> = /*@__PURE__*/ build<VanillaRewindIcon, SvgProperties>(VanillaRewindIcon)
+> = /*@__PURE__*/ build<VanillaRewindIcon, SvgProperties>(VanillaRewindIcon, "VanillaRewindIcon")
 export const Rewind: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRewindIcon>
 > = RewindIcon

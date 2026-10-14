@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const MailXIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMailXIcon>
-> = /*@__PURE__*/ build<VanillaMailXIcon, SvgProperties>(VanillaMailXIcon)
+> = /*@__PURE__*/ build<VanillaMailXIcon, SvgProperties>(VanillaMailXIcon, "VanillaMailXIcon")
 export const MailX: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMailXIcon>
 > = MailXIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ArrowDownFromLineIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaArrowDownFromLineIcon>
-> = /*@__PURE__*/ build<VanillaArrowDownFromLineIcon, SvgProperties>(VanillaArrowDownFromLineIcon)
+> = /*@__PURE__*/ build<VanillaArrowDownFromLineIcon, SvgProperties>(VanillaArrowDownFromLineIcon, "VanillaArrowDownFromLineIcon")
 export const ArrowDownFromLine: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaArrowDownFromLineIcon>
 > = ArrowDownFromLineIcon

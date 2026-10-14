@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const GitBranchPlusIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGitBranchPlusIcon>
-> = /*@__PURE__*/ build<VanillaGitBranchPlusIcon, SvgProperties>(VanillaGitBranchPlusIcon)
+> = /*@__PURE__*/ build<VanillaGitBranchPlusIcon, SvgProperties>(VanillaGitBranchPlusIcon, "VanillaGitBranchPlusIcon")
 export const GitBranchPlus: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGitBranchPlusIcon>
 > = GitBranchPlusIcon

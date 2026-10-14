@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const InfinityIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaInfinityIcon>
-> = /*@__PURE__*/ build<VanillaInfinityIcon, SvgProperties>(VanillaInfinityIcon)
+> = /*@__PURE__*/ build<VanillaInfinityIcon, SvgProperties>(VanillaInfinityIcon, "VanillaInfinityIcon")
 export const Infinity: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaInfinityIcon>
 > = InfinityIcon

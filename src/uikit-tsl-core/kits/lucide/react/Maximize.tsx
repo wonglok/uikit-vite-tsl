@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const MaximizeIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMaximizeIcon>
-> = /*@__PURE__*/ build<VanillaMaximizeIcon, SvgProperties>(VanillaMaximizeIcon)
+> = /*@__PURE__*/ build<VanillaMaximizeIcon, SvgProperties>(VanillaMaximizeIcon, "VanillaMaximizeIcon")
 export const Maximize: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMaximizeIcon>
 > = MaximizeIcon

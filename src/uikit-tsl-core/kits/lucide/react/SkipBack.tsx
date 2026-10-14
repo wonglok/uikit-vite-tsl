@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SkipBackIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSkipBackIcon>
-> = /*@__PURE__*/ build<VanillaSkipBackIcon, SvgProperties>(VanillaSkipBackIcon)
+> = /*@__PURE__*/ build<VanillaSkipBackIcon, SvgProperties>(VanillaSkipBackIcon, "VanillaSkipBackIcon")
 export const SkipBack: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSkipBackIcon>
 > = SkipBackIcon

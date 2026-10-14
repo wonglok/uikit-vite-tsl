@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const LayoutTemplateIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLayoutTemplateIcon>
-> = /*@__PURE__*/ build<VanillaLayoutTemplateIcon, SvgProperties>(VanillaLayoutTemplateIcon)
+> = /*@__PURE__*/ build<VanillaLayoutTemplateIcon, SvgProperties>(VanillaLayoutTemplateIcon, "VanillaLayoutTemplateIcon")
 export const LayoutTemplate: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLayoutTemplateIcon>
 > = LayoutTemplateIcon

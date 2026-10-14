@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const DatabaseBackupIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaDatabaseBackupIcon>
-> = /*@__PURE__*/ build<VanillaDatabaseBackupIcon, SvgProperties>(VanillaDatabaseBackupIcon)
+> = /*@__PURE__*/ build<VanillaDatabaseBackupIcon, SvgProperties>(VanillaDatabaseBackupIcon, "VanillaDatabaseBackupIcon")
 export const DatabaseBackup: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaDatabaseBackupIcon>
 > = DatabaseBackupIcon

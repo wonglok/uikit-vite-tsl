@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const WalletMinimalIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWalletMinimalIcon>
-> = /*@__PURE__*/ build<VanillaWalletMinimalIcon, SvgProperties>(VanillaWalletMinimalIcon)
+> = /*@__PURE__*/ build<VanillaWalletMinimalIcon, SvgProperties>(VanillaWalletMinimalIcon, "VanillaWalletMinimalIcon")
 export const WalletMinimal: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWalletMinimalIcon>
 > = WalletMinimalIcon

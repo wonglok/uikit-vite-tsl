@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const BookAIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBookAIcon>
-> = /*@__PURE__*/ build<VanillaBookAIcon, SvgProperties>(VanillaBookAIcon)
+> = /*@__PURE__*/ build<VanillaBookAIcon, SvgProperties>(VanillaBookAIcon, "VanillaBookAIcon")
 export const BookA: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBookAIcon>
 > = BookAIcon

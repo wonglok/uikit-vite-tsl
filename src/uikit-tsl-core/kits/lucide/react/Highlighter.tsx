@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const HighlighterIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaHighlighterIcon>
-> = /*@__PURE__*/ build<VanillaHighlighterIcon, SvgProperties>(VanillaHighlighterIcon)
+> = /*@__PURE__*/ build<VanillaHighlighterIcon, SvgProperties>(VanillaHighlighterIcon, "VanillaHighlighterIcon")
 export const Highlighter: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaHighlighterIcon>
 > = HighlighterIcon

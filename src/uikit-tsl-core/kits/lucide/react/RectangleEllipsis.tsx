@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const RectangleEllipsisIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRectangleEllipsisIcon>
-> = /*@__PURE__*/ build<VanillaRectangleEllipsisIcon, SvgProperties>(VanillaRectangleEllipsisIcon)
+> = /*@__PURE__*/ build<VanillaRectangleEllipsisIcon, SvgProperties>(VanillaRectangleEllipsisIcon, "VanillaRectangleEllipsisIcon")
 export const RectangleEllipsis: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRectangleEllipsisIcon>
 > = RectangleEllipsisIcon

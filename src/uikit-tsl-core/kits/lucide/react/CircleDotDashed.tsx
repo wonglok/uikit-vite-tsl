@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CircleDotDashedIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCircleDotDashedIcon>
-> = /*@__PURE__*/ build<VanillaCircleDotDashedIcon, SvgProperties>(VanillaCircleDotDashedIcon)
+> = /*@__PURE__*/ build<VanillaCircleDotDashedIcon, SvgProperties>(VanillaCircleDotDashedIcon, "VanillaCircleDotDashedIcon")
 export const CircleDotDashed: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCircleDotDashedIcon>
 > = CircleDotDashedIcon

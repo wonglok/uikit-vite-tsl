@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const LoaderPinwheelIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLoaderPinwheelIcon>
-> = /*@__PURE__*/ build<VanillaLoaderPinwheelIcon, SvgProperties>(VanillaLoaderPinwheelIcon)
+> = /*@__PURE__*/ build<VanillaLoaderPinwheelIcon, SvgProperties>(VanillaLoaderPinwheelIcon, "VanillaLoaderPinwheelIcon")
 export const LoaderPinwheel: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLoaderPinwheelIcon>
 > = LoaderPinwheelIcon

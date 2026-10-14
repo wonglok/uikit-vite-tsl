@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CaseUpperIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCaseUpperIcon>
-> = /*@__PURE__*/ build<VanillaCaseUpperIcon, SvgProperties>(VanillaCaseUpperIcon)
+> = /*@__PURE__*/ build<VanillaCaseUpperIcon, SvgProperties>(VanillaCaseUpperIcon, "VanillaCaseUpperIcon")
 export const CaseUpper: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCaseUpperIcon>
 > = CaseUpperIcon

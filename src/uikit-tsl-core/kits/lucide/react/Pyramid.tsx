@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const PyramidIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaPyramidIcon>
-> = /*@__PURE__*/ build<VanillaPyramidIcon, SvgProperties>(VanillaPyramidIcon)
+> = /*@__PURE__*/ build<VanillaPyramidIcon, SvgProperties>(VanillaPyramidIcon, "VanillaPyramidIcon")
 export const Pyramid: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaPyramidIcon>
 > = PyramidIcon

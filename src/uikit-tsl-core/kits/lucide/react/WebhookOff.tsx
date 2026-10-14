@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const WebhookOffIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWebhookOffIcon>
-> = /*@__PURE__*/ build<VanillaWebhookOffIcon, SvgProperties>(VanillaWebhookOffIcon)
+> = /*@__PURE__*/ build<VanillaWebhookOffIcon, SvgProperties>(VanillaWebhookOffIcon, "VanillaWebhookOffIcon")
 export const WebhookOff: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWebhookOffIcon>
 > = WebhookOffIcon

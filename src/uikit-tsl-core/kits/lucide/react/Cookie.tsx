@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CookieIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCookieIcon>
-> = /*@__PURE__*/ build<VanillaCookieIcon, SvgProperties>(VanillaCookieIcon)
+> = /*@__PURE__*/ build<VanillaCookieIcon, SvgProperties>(VanillaCookieIcon, "VanillaCookieIcon")
 export const Cookie: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCookieIcon>
 > = CookieIcon

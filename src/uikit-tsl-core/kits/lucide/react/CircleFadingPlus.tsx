@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CircleFadingPlusIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCircleFadingPlusIcon>
-> = /*@__PURE__*/ build<VanillaCircleFadingPlusIcon, SvgProperties>(VanillaCircleFadingPlusIcon)
+> = /*@__PURE__*/ build<VanillaCircleFadingPlusIcon, SvgProperties>(VanillaCircleFadingPlusIcon, "VanillaCircleFadingPlusIcon")
 export const CircleFadingPlus: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCircleFadingPlusIcon>
 > = CircleFadingPlusIcon

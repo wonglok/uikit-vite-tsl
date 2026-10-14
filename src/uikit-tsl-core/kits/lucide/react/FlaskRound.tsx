@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FlaskRoundIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFlaskRoundIcon>
-> = /*@__PURE__*/ build<VanillaFlaskRoundIcon, SvgProperties>(VanillaFlaskRoundIcon)
+> = /*@__PURE__*/ build<VanillaFlaskRoundIcon, SvgProperties>(VanillaFlaskRoundIcon, "VanillaFlaskRoundIcon")
 export const FlaskRound: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFlaskRoundIcon>
 > = FlaskRoundIcon

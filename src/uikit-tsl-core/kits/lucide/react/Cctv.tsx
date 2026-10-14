@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CctvIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCctvIcon>
-> = /*@__PURE__*/ build<VanillaCctvIcon, SvgProperties>(VanillaCctvIcon)
+> = /*@__PURE__*/ build<VanillaCctvIcon, SvgProperties>(VanillaCctvIcon, "VanillaCctvIcon")
 export const Cctv: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCctvIcon>
 > = CctvIcon

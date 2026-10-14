@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const MonitorCheckIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMonitorCheckIcon>
-> = /*@__PURE__*/ build<VanillaMonitorCheckIcon, SvgProperties>(VanillaMonitorCheckIcon)
+> = /*@__PURE__*/ build<VanillaMonitorCheckIcon, SvgProperties>(VanillaMonitorCheckIcon, "VanillaMonitorCheckIcon")
 export const MonitorCheck: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMonitorCheckIcon>
 > = MonitorCheckIcon

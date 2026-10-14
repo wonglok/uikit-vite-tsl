@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const RailSymbolIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRailSymbolIcon>
-> = /*@__PURE__*/ build<VanillaRailSymbolIcon, SvgProperties>(VanillaRailSymbolIcon)
+> = /*@__PURE__*/ build<VanillaRailSymbolIcon, SvgProperties>(VanillaRailSymbolIcon, "VanillaRailSymbolIcon")
 export const RailSymbol: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaRailSymbolIcon>
 > = RailSymbolIcon

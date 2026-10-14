@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const BaggageClaimIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBaggageClaimIcon>
-> = /*@__PURE__*/ build<VanillaBaggageClaimIcon, SvgProperties>(VanillaBaggageClaimIcon)
+> = /*@__PURE__*/ build<VanillaBaggageClaimIcon, SvgProperties>(VanillaBaggageClaimIcon, "VanillaBaggageClaimIcon")
 export const BaggageClaim: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBaggageClaimIcon>
 > = BaggageClaimIcon

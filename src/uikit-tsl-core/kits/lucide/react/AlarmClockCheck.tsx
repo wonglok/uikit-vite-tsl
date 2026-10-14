@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const AlarmClockCheckIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAlarmClockCheckIcon>
-> = /*@__PURE__*/ build<VanillaAlarmClockCheckIcon, SvgProperties>(VanillaAlarmClockCheckIcon)
+> = /*@__PURE__*/ build<VanillaAlarmClockCheckIcon, SvgProperties>(VanillaAlarmClockCheckIcon, "VanillaAlarmClockCheckIcon")
 export const AlarmClockCheck: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAlarmClockCheckIcon>
 > = AlarmClockCheckIcon

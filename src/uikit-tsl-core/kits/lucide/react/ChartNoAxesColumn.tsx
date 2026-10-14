@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ChartNoAxesColumnIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChartNoAxesColumnIcon>
-> = /*@__PURE__*/ build<VanillaChartNoAxesColumnIcon, SvgProperties>(VanillaChartNoAxesColumnIcon)
+> = /*@__PURE__*/ build<VanillaChartNoAxesColumnIcon, SvgProperties>(VanillaChartNoAxesColumnIcon, "VanillaChartNoAxesColumnIcon")
 export const ChartNoAxesColumn: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChartNoAxesColumnIcon>
 > = ChartNoAxesColumnIcon

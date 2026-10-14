@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const AtSignIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAtSignIcon>
-> = /*@__PURE__*/ build<VanillaAtSignIcon, SvgProperties>(VanillaAtSignIcon)
+> = /*@__PURE__*/ build<VanillaAtSignIcon, SvgProperties>(VanillaAtSignIcon, "VanillaAtSignIcon")
 export const AtSign: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAtSignIcon>
 > = AtSignIcon

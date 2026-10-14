@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const LassoSelectIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLassoSelectIcon>
-> = /*@__PURE__*/ build<VanillaLassoSelectIcon, SvgProperties>(VanillaLassoSelectIcon)
+> = /*@__PURE__*/ build<VanillaLassoSelectIcon, SvgProperties>(VanillaLassoSelectIcon, "VanillaLassoSelectIcon")
 export const LassoSelect: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaLassoSelectIcon>
 > = LassoSelectIcon

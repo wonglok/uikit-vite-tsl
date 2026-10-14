@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SnowflakeIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSnowflakeIcon>
-> = /*@__PURE__*/ build<VanillaSnowflakeIcon, SvgProperties>(VanillaSnowflakeIcon)
+> = /*@__PURE__*/ build<VanillaSnowflakeIcon, SvgProperties>(VanillaSnowflakeIcon, "VanillaSnowflakeIcon")
 export const Snowflake: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSnowflakeIcon>
 > = SnowflakeIcon

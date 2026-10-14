@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FlashlightOffIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFlashlightOffIcon>
-> = /*@__PURE__*/ build<VanillaFlashlightOffIcon, SvgProperties>(VanillaFlashlightOffIcon)
+> = /*@__PURE__*/ build<VanillaFlashlightOffIcon, SvgProperties>(VanillaFlashlightOffIcon, "VanillaFlashlightOffIcon")
 export const FlashlightOff: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFlashlightOffIcon>
 > = FlashlightOffIcon

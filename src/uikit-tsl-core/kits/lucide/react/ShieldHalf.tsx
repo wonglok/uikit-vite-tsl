@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ShieldHalfIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaShieldHalfIcon>
-> = /*@__PURE__*/ build<VanillaShieldHalfIcon, SvgProperties>(VanillaShieldHalfIcon)
+> = /*@__PURE__*/ build<VanillaShieldHalfIcon, SvgProperties>(VanillaShieldHalfIcon, "VanillaShieldHalfIcon")
 export const ShieldHalf: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaShieldHalfIcon>
 > = ShieldHalfIcon

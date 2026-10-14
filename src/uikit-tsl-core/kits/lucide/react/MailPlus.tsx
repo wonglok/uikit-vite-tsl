@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const MailPlusIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMailPlusIcon>
-> = /*@__PURE__*/ build<VanillaMailPlusIcon, SvgProperties>(VanillaMailPlusIcon)
+> = /*@__PURE__*/ build<VanillaMailPlusIcon, SvgProperties>(VanillaMailPlusIcon, "VanillaMailPlusIcon")
 export const MailPlus: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMailPlusIcon>
 > = MailPlusIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ShredderIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaShredderIcon>
-> = /*@__PURE__*/ build<VanillaShredderIcon, SvgProperties>(VanillaShredderIcon)
+> = /*@__PURE__*/ build<VanillaShredderIcon, SvgProperties>(VanillaShredderIcon, "VanillaShredderIcon")
 export const Shredder: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaShredderIcon>
 > = ShredderIcon

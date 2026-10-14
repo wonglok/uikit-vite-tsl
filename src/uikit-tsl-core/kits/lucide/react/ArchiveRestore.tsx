@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ArchiveRestoreIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaArchiveRestoreIcon>
-> = /*@__PURE__*/ build<VanillaArchiveRestoreIcon, SvgProperties>(VanillaArchiveRestoreIcon)
+> = /*@__PURE__*/ build<VanillaArchiveRestoreIcon, SvgProperties>(VanillaArchiveRestoreIcon, "VanillaArchiveRestoreIcon")
 export const ArchiveRestore: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaArchiveRestoreIcon>
 > = ArchiveRestoreIcon

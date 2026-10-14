@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CombineIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCombineIcon>
-> = /*@__PURE__*/ build<VanillaCombineIcon, SvgProperties>(VanillaCombineIcon)
+> = /*@__PURE__*/ build<VanillaCombineIcon, SvgProperties>(VanillaCombineIcon, "VanillaCombineIcon")
 export const Combine: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCombineIcon>
 > = CombineIcon

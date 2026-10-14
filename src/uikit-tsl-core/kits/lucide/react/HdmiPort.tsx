@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const HdmiPortIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaHdmiPortIcon>
-> = /*@__PURE__*/ build<VanillaHdmiPortIcon, SvgProperties>(VanillaHdmiPortIcon)
+> = /*@__PURE__*/ build<VanillaHdmiPortIcon, SvgProperties>(VanillaHdmiPortIcon, "VanillaHdmiPortIcon")
 export const HdmiPort: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaHdmiPortIcon>
 > = HdmiPortIcon

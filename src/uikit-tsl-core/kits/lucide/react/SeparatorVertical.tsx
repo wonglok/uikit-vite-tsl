@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SeparatorVerticalIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSeparatorVerticalIcon>
-> = /*@__PURE__*/ build<VanillaSeparatorVerticalIcon, SvgProperties>(VanillaSeparatorVerticalIcon)
+> = /*@__PURE__*/ build<VanillaSeparatorVerticalIcon, SvgProperties>(VanillaSeparatorVerticalIcon, "VanillaSeparatorVerticalIcon")
 export const SeparatorVertical: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSeparatorVerticalIcon>
 > = SeparatorVerticalIcon

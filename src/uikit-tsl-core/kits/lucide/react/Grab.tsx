@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const GrabIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGrabIcon>
-> = /*@__PURE__*/ build<VanillaGrabIcon, SvgProperties>(VanillaGrabIcon)
+> = /*@__PURE__*/ build<VanillaGrabIcon, SvgProperties>(VanillaGrabIcon, "VanillaGrabIcon")
 export const Grab: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGrabIcon>
 > = GrabIcon

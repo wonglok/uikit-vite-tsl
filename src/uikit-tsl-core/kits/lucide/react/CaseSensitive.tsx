@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CaseSensitiveIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCaseSensitiveIcon>
-> = /*@__PURE__*/ build<VanillaCaseSensitiveIcon, SvgProperties>(VanillaCaseSensitiveIcon)
+> = /*@__PURE__*/ build<VanillaCaseSensitiveIcon, SvgProperties>(VanillaCaseSensitiveIcon, "VanillaCaseSensitiveIcon")
 export const CaseSensitive: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCaseSensitiveIcon>
 > = CaseSensitiveIcon

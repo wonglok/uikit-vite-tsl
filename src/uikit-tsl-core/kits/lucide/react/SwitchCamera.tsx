@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SwitchCameraIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSwitchCameraIcon>
-> = /*@__PURE__*/ build<VanillaSwitchCameraIcon, SvgProperties>(VanillaSwitchCameraIcon)
+> = /*@__PURE__*/ build<VanillaSwitchCameraIcon, SvgProperties>(VanillaSwitchCameraIcon, "VanillaSwitchCameraIcon")
 export const SwitchCamera: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSwitchCameraIcon>
 > = SwitchCameraIcon

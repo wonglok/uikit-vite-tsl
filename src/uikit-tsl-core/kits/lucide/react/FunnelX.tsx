@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FunnelXIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFunnelXIcon>
-> = /*@__PURE__*/ build<VanillaFunnelXIcon, SvgProperties>(VanillaFunnelXIcon)
+> = /*@__PURE__*/ build<VanillaFunnelXIcon, SvgProperties>(VanillaFunnelXIcon, "VanillaFunnelXIcon")
 export const FunnelX: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFunnelXIcon>
 > = FunnelXIcon

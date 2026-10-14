@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ClipboardCheckIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaClipboardCheckIcon>
-> = /*@__PURE__*/ build<VanillaClipboardCheckIcon, SvgProperties>(VanillaClipboardCheckIcon)
+> = /*@__PURE__*/ build<VanillaClipboardCheckIcon, SvgProperties>(VanillaClipboardCheckIcon, "VanillaClipboardCheckIcon")
 export const ClipboardCheck: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaClipboardCheckIcon>
 > = ClipboardCheckIcon

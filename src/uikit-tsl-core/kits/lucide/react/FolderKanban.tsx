@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FolderKanbanIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFolderKanbanIcon>
-> = /*@__PURE__*/ build<VanillaFolderKanbanIcon, SvgProperties>(VanillaFolderKanbanIcon)
+> = /*@__PURE__*/ build<VanillaFolderKanbanIcon, SvgProperties>(VanillaFolderKanbanIcon, "VanillaFolderKanbanIcon")
 export const FolderKanban: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFolderKanbanIcon>
 > = FolderKanbanIcon

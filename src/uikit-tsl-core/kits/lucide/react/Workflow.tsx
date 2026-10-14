@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const WorkflowIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWorkflowIcon>
-> = /*@__PURE__*/ build<VanillaWorkflowIcon, SvgProperties>(VanillaWorkflowIcon)
+> = /*@__PURE__*/ build<VanillaWorkflowIcon, SvgProperties>(VanillaWorkflowIcon, "VanillaWorkflowIcon")
 export const Workflow: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWorkflowIcon>
 > = WorkflowIcon

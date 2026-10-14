@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SuperscriptIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSuperscriptIcon>
-> = /*@__PURE__*/ build<VanillaSuperscriptIcon, SvgProperties>(VanillaSuperscriptIcon)
+> = /*@__PURE__*/ build<VanillaSuperscriptIcon, SvgProperties>(VanillaSuperscriptIcon, "VanillaSuperscriptIcon")
 export const Superscript: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSuperscriptIcon>
 > = SuperscriptIcon

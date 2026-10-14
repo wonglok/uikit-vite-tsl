@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FingerprintIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFingerprintIcon>
-> = /*@__PURE__*/ build<VanillaFingerprintIcon, SvgProperties>(VanillaFingerprintIcon)
+> = /*@__PURE__*/ build<VanillaFingerprintIcon, SvgProperties>(VanillaFingerprintIcon, "VanillaFingerprintIcon")
 export const Fingerprint: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFingerprintIcon>
 > = FingerprintIcon

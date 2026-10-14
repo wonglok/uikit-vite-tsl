@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const EthernetPortIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaEthernetPortIcon>
-> = /*@__PURE__*/ build<VanillaEthernetPortIcon, SvgProperties>(VanillaEthernetPortIcon)
+> = /*@__PURE__*/ build<VanillaEthernetPortIcon, SvgProperties>(VanillaEthernetPortIcon, "VanillaEthernetPortIcon")
 export const EthernetPort: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaEthernetPortIcon>
 > = EthernetPortIcon

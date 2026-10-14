@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ChartNetworkIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChartNetworkIcon>
-> = /*@__PURE__*/ build<VanillaChartNetworkIcon, SvgProperties>(VanillaChartNetworkIcon)
+> = /*@__PURE__*/ build<VanillaChartNetworkIcon, SvgProperties>(VanillaChartNetworkIcon, "VanillaChartNetworkIcon")
 export const ChartNetwork: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChartNetworkIcon>
 > = ChartNetworkIcon

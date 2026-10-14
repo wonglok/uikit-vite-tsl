@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const BetweenVerticalEndIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBetweenVerticalEndIcon>
-> = /*@__PURE__*/ build<VanillaBetweenVerticalEndIcon, SvgProperties>(VanillaBetweenVerticalEndIcon)
+> = /*@__PURE__*/ build<VanillaBetweenVerticalEndIcon, SvgProperties>(VanillaBetweenVerticalEndIcon, "VanillaBetweenVerticalEndIcon")
 export const BetweenVerticalEnd: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBetweenVerticalEndIcon>
 > = BetweenVerticalEndIcon

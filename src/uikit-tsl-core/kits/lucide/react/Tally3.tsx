@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const Tally3Icon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTally3Icon>
-> = /*@__PURE__*/ build<VanillaTally3Icon, SvgProperties>(VanillaTally3Icon)
+> = /*@__PURE__*/ build<VanillaTally3Icon, SvgProperties>(VanillaTally3Icon, "VanillaTally3Icon")
 export const Tally3: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTally3Icon>
 > = Tally3Icon

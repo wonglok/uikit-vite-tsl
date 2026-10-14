@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const PanelBottomOpenIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaPanelBottomOpenIcon>
-> = /*@__PURE__*/ build<VanillaPanelBottomOpenIcon, SvgProperties>(VanillaPanelBottomOpenIcon)
+> = /*@__PURE__*/ build<VanillaPanelBottomOpenIcon, SvgProperties>(VanillaPanelBottomOpenIcon, "VanillaPanelBottomOpenIcon")
 export const PanelBottomOpen: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaPanelBottomOpenIcon>
 > = PanelBottomOpenIcon

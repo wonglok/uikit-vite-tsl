@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const MapPinPlusInsideIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMapPinPlusInsideIcon>
-> = /*@__PURE__*/ build<VanillaMapPinPlusInsideIcon, SvgProperties>(VanillaMapPinPlusInsideIcon)
+> = /*@__PURE__*/ build<VanillaMapPinPlusInsideIcon, SvgProperties>(VanillaMapPinPlusInsideIcon, "VanillaMapPinPlusInsideIcon")
 export const MapPinPlusInside: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMapPinPlusInsideIcon>
 > = MapPinPlusInsideIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SearchXIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSearchXIcon>
-> = /*@__PURE__*/ build<VanillaSearchXIcon, SvgProperties>(VanillaSearchXIcon)
+> = /*@__PURE__*/ build<VanillaSearchXIcon, SvgProperties>(VanillaSearchXIcon, "VanillaSearchXIcon")
 export const SearchX: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSearchXIcon>
 > = SearchXIcon

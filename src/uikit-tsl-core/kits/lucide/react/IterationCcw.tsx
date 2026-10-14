@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const IterationCcwIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaIterationCcwIcon>
-> = /*@__PURE__*/ build<VanillaIterationCcwIcon, SvgProperties>(VanillaIterationCcwIcon)
+> = /*@__PURE__*/ build<VanillaIterationCcwIcon, SvgProperties>(VanillaIterationCcwIcon, "VanillaIterationCcwIcon")
 export const IterationCcw: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaIterationCcwIcon>
 > = IterationCcwIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const GroupIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGroupIcon>
-> = /*@__PURE__*/ build<VanillaGroupIcon, SvgProperties>(VanillaGroupIcon)
+> = /*@__PURE__*/ build<VanillaGroupIcon, SvgProperties>(VanillaGroupIcon, "VanillaGroupIcon")
 export const Group: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGroupIcon>
 > = GroupIcon

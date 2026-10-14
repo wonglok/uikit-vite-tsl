@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const WallpaperIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWallpaperIcon>
-> = /*@__PURE__*/ build<VanillaWallpaperIcon, SvgProperties>(VanillaWallpaperIcon)
+> = /*@__PURE__*/ build<VanillaWallpaperIcon, SvgProperties>(VanillaWallpaperIcon, "VanillaWallpaperIcon")
 export const Wallpaper: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWallpaperIcon>
 > = WallpaperIcon

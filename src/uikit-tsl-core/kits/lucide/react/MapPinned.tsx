@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const MapPinnedIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMapPinnedIcon>
-> = /*@__PURE__*/ build<VanillaMapPinnedIcon, SvgProperties>(VanillaMapPinnedIcon)
+> = /*@__PURE__*/ build<VanillaMapPinnedIcon, SvgProperties>(VanillaMapPinnedIcon, "VanillaMapPinnedIcon")
 export const MapPinned: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMapPinnedIcon>
 > = MapPinnedIcon

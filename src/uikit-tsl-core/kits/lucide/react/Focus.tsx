@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FocusIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFocusIcon>
-> = /*@__PURE__*/ build<VanillaFocusIcon, SvgProperties>(VanillaFocusIcon)
+> = /*@__PURE__*/ build<VanillaFocusIcon, SvgProperties>(VanillaFocusIcon, "VanillaFocusIcon")
 export const Focus: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFocusIcon>
 > = FocusIcon

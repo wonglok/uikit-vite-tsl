@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const GamepadIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGamepadIcon>
-> = /*@__PURE__*/ build<VanillaGamepadIcon, SvgProperties>(VanillaGamepadIcon)
+> = /*@__PURE__*/ build<VanillaGamepadIcon, SvgProperties>(VanillaGamepadIcon, "VanillaGamepadIcon")
 export const Gamepad: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGamepadIcon>
 > = GamepadIcon

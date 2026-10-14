@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SpeechIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSpeechIcon>
-> = /*@__PURE__*/ build<VanillaSpeechIcon, SvgProperties>(VanillaSpeechIcon)
+> = /*@__PURE__*/ build<VanillaSpeechIcon, SvgProperties>(VanillaSpeechIcon, "VanillaSpeechIcon")
 export const Speech: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSpeechIcon>
 > = SpeechIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const BanIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBanIcon>
-> = /*@__PURE__*/ build<VanillaBanIcon, SvgProperties>(VanillaBanIcon)
+> = /*@__PURE__*/ build<VanillaBanIcon, SvgProperties>(VanillaBanIcon, "VanillaBanIcon")
 export const Ban: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaBanIcon>
 > = BanIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const ChromeIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChromeIcon>
-> = /*@__PURE__*/ build<VanillaChromeIcon, SvgProperties>(VanillaChromeIcon)
+> = /*@__PURE__*/ build<VanillaChromeIcon, SvgProperties>(VanillaChromeIcon, "VanillaChromeIcon")
 export const Chrome: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaChromeIcon>
 > = ChromeIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const MouseIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMouseIcon>
-> = /*@__PURE__*/ build<VanillaMouseIcon, SvgProperties>(VanillaMouseIcon)
+> = /*@__PURE__*/ build<VanillaMouseIcon, SvgProperties>(VanillaMouseIcon, "VanillaMouseIcon")
 export const Mouse: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMouseIcon>
 > = MouseIcon

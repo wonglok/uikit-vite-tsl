@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const SplitIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSplitIcon>
-> = /*@__PURE__*/ build<VanillaSplitIcon, SvgProperties>(VanillaSplitIcon)
+> = /*@__PURE__*/ build<VanillaSplitIcon, SvgProperties>(VanillaSplitIcon, "VanillaSplitIcon")
 export const Split: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaSplitIcon>
 > = SplitIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const MicrowaveIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMicrowaveIcon>
-> = /*@__PURE__*/ build<VanillaMicrowaveIcon, SvgProperties>(VanillaMicrowaveIcon)
+> = /*@__PURE__*/ build<VanillaMicrowaveIcon, SvgProperties>(VanillaMicrowaveIcon, "VanillaMicrowaveIcon")
 export const Microwave: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaMicrowaveIcon>
 > = MicrowaveIcon

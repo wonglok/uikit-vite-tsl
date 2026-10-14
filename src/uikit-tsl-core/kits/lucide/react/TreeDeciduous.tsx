@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const TreeDeciduousIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTreeDeciduousIcon>
-> = /*@__PURE__*/ build<VanillaTreeDeciduousIcon, SvgProperties>(VanillaTreeDeciduousIcon)
+> = /*@__PURE__*/ build<VanillaTreeDeciduousIcon, SvgProperties>(VanillaTreeDeciduousIcon, "VanillaTreeDeciduousIcon")
 export const TreeDeciduous: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaTreeDeciduousIcon>
 > = TreeDeciduousIcon

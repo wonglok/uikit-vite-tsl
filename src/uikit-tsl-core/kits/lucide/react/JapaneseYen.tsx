@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const JapaneseYenIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaJapaneseYenIcon>
-> = /*@__PURE__*/ build<VanillaJapaneseYenIcon, SvgProperties>(VanillaJapaneseYenIcon)
+> = /*@__PURE__*/ build<VanillaJapaneseYenIcon, SvgProperties>(VanillaJapaneseYenIcon, "VanillaJapaneseYenIcon")
 export const JapaneseYen: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaJapaneseYenIcon>
 > = JapaneseYenIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const PaperclipIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaPaperclipIcon>
-> = /*@__PURE__*/ build<VanillaPaperclipIcon, SvgProperties>(VanillaPaperclipIcon)
+> = /*@__PURE__*/ build<VanillaPaperclipIcon, SvgProperties>(VanillaPaperclipIcon, "VanillaPaperclipIcon")
 export const Paperclip: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaPaperclipIcon>
 > = PaperclipIcon

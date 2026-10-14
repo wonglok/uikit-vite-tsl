@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const WrapTextIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWrapTextIcon>
-> = /*@__PURE__*/ build<VanillaWrapTextIcon, SvgProperties>(VanillaWrapTextIcon)
+> = /*@__PURE__*/ build<VanillaWrapTextIcon, SvgProperties>(VanillaWrapTextIcon, "VanillaWrapTextIcon")
 export const WrapText: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaWrapTextIcon>
 > = WrapTextIcon

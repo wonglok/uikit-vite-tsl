@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const CloudLightningIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCloudLightningIcon>
-> = /*@__PURE__*/ build<VanillaCloudLightningIcon, SvgProperties>(VanillaCloudLightningIcon)
+> = /*@__PURE__*/ build<VanillaCloudLightningIcon, SvgProperties>(VanillaCloudLightningIcon, "VanillaCloudLightningIcon")
 export const CloudLightning: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaCloudLightningIcon>
 > = CloudLightningIcon

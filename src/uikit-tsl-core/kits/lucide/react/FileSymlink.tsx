@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const FileSymlinkIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFileSymlinkIcon>
-> = /*@__PURE__*/ build<VanillaFileSymlinkIcon, SvgProperties>(VanillaFileSymlinkIcon)
+> = /*@__PURE__*/ build<VanillaFileSymlinkIcon, SvgProperties>(VanillaFileSymlinkIcon, "VanillaFileSymlinkIcon")
 export const FileSymlink: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaFileSymlinkIcon>
 > = FileSymlinkIcon

@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const GitPullRequestArrowIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGitPullRequestArrowIcon>
-> = /*@__PURE__*/ build<VanillaGitPullRequestArrowIcon, SvgProperties>(VanillaGitPullRequestArrowIcon)
+> = /*@__PURE__*/ build<VanillaGitPullRequestArrowIcon, SvgProperties>(VanillaGitPullRequestArrowIcon, "VanillaGitPullRequestArrowIcon")
 export const GitPullRequestArrow: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaGitPullRequestArrowIcon>
 > = GitPullRequestArrowIcon

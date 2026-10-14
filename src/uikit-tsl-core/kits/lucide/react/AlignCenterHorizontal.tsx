@@ -5,7 +5,7 @@ import { SvgProperties, build } from '../../../react/index'
 
 export const AlignCenterHorizontalIcon: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAlignCenterHorizontalIcon>
-> = /*@__PURE__*/ build<VanillaAlignCenterHorizontalIcon, SvgProperties>(VanillaAlignCenterHorizontalIcon)
+> = /*@__PURE__*/ build<VanillaAlignCenterHorizontalIcon, SvgProperties>(VanillaAlignCenterHorizontalIcon, "VanillaAlignCenterHorizontalIcon")
 export const AlignCenterHorizontal: ForwardRefExoticComponent<
   PropsWithoutRef<SvgProperties> & RefAttributes<VanillaAlignCenterHorizontalIcon>
 > = AlignCenterHorizontalIcon
