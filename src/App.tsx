@@ -91,17 +91,19 @@ function ExampleCard({ entry }: { entry: ExampleEntry }) {
   return (
     <Link
       to={`/example/${entry.slug}`}
-      className="group flex flex-col gap-2 rounded-xl border border-white/10 bg-white/3 p-5 transition hover:border-white/25 hover:bg-white/7"
+      className="group flex flex-col gap-2 rounded-xl border border-neutral-200 bg-white p-5 shadow-sm transition hover:border-neutral-300 hover:bg-neutral-50 hover:shadow"
     >
-      <h2 className="text-base font-semibold text-white">{entry.title}</h2>
-      <p className="text-sm leading-relaxed text-neutral-400">
+      <h2 className="text-base font-semibold text-neutral-900">
+        {entry.title}
+      </h2>
+      <p className="text-sm leading-relaxed text-neutral-600">
         {entry.description}
       </p>
       <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
         {entry.uses.map((pkg) => (
           <span
             key={pkg}
-            className="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[11px] text-neutral-400"
+            className="rounded-md bg-neutral-100 px-2 py-0.5 font-mono text-[11px] text-neutral-600"
           >
             {pkg}
           </span>
@@ -113,22 +115,24 @@ function ExampleCard({ entry }: { entry: ExampleEntry }) {
 
 function HomePage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-12">
-      <header className="mb-10">
-        <h1 className="text-2xl font-semibold tracking-tight text-white">
-          uikit-tsl examples
-        </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">
-          The pmndrs uikit examples, ported to run on Three.js WebGPU via the
-          Three.js Shading Language. Panels and MSDF text are rendered by TSL
-          node materials rather than the original GLSL shader patches.
-        </p>
-      </header>
+    <div className="min-h-full w-full bg-neutral-50 text-neutral-900">
+      <div className="mx-auto max-w-5xl px-6 py-12">
+        <header className="mb-10">
+          <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">
+            uikit-tsl examples
+          </h1>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-600">
+            The pmndrs uikit examples, ported to run on Three.js WebGPU via the
+            Three.js Shading Language. Panels and MSDF text are rendered by TSL
+            node materials rather than the original GLSL shader patches.
+          </p>
+        </header>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {examples.map((entry) => (
-          <ExampleCard key={entry.slug} entry={entry} />
-        ))}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {examples.map((entry) => (
+            <ExampleCard key={entry.slug} entry={entry} />
+          ))}
+        </div>
       </div>
     </div>
   );

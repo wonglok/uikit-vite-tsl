@@ -102,7 +102,9 @@ function DividerDemo() {
       <Container width={360} flexDirection="column" gap={8}>
         <Text>Profile</Text>
         <Divider height={2} />
-        <Text color="rgba(255,255,255,0.75)">Name, email and other details appear below.</Text>
+        <Text color="#3f3f46">
+          Name, email and other details appear below.
+        </Text>
       </Container>
 
       {/* Vertical dividers between cards */}
@@ -112,7 +114,7 @@ function DividerDemo() {
           justifyContent="center"
           width={120}
           height={60}
-          backgroundColor="rgba(255,255,255,0.06)"
+          backgroundColor="#e4e4e7"
           borderRadius={8}
         >
           <Text>A</Text>
@@ -123,7 +125,7 @@ function DividerDemo() {
           justifyContent="center"
           width={120}
           height={60}
-          backgroundColor="rgba(255,255,255,0.06)"
+          backgroundColor="#e4e4e7"
           borderRadius={8}
         >
           <Text>B</Text>
@@ -134,7 +136,7 @@ function DividerDemo() {
           justifyContent="center"
           width={120}
           height={60}
-          backgroundColor="rgba(255,255,255,0.06)"
+          backgroundColor="#e4e4e7"
           borderRadius={8}
         >
           <Text>C</Text>
@@ -180,18 +182,25 @@ function IconIndicatorDemo() {
 }
 
 function InputFieldDemo() {
-  return <InputField width={280} label="HelperText" placeholder="Enter something" />;
+  return (
+    <InputField width={280} label="HelperText" placeholder="Enter something" />
+  );
 }
 
 function InputDemo() {
-  return <Input width={240} placeholder="Email" variant="text" textAlign="left" />;
+  return (
+    <Input width={240} placeholder="Email" variant="text" textAlign="left" />
+  );
 }
 
 function PanelDemo() {
   return (
     <Panel padding={16} width={300}>
       <Container>
-        <Text>Panel content</Text>
+        {/* The Panel keeps its default dark fill here, so its label has to be
+            light -- on the light page `color` would otherwise inherit black
+            and vanish into the panel. */}
+        <Text color="#ffffff">Panel content</Text>
       </Container>
     </Panel>
   );
@@ -257,12 +266,22 @@ const defaultComponent = "avatar";
 export function HorizonExample() {
   const [component, setComponent] = useState<string>(defaultComponent);
 
-  const installCommand = "npm install @react-three/uikit @react-three/uikit-horizon";
+  const installCommand =
+    "npm install @react-three/uikit @react-three/uikit-horizon";
 
   return (
-    <UikitCanvas events={noEvents} style={{ height: "100dvh", touchAction: "none" }} gl={{ localClippingEnabled: true }}>
+    <UikitCanvas
+      events={noEvents}
+      style={{ height: "100dvh", touchAction: "none" }}
+      gl={{ localClippingEnabled: true }}
+    >
       <PointerEvents />
-      <color attach="background" args={["black"]} />
+      {/* A grey page backdrop so the white surfaces read as raised cards.
+          The horizon `Panel` paints itself through a GLSL `onBeforeCompile`
+          patch, which does not survive the WebGPU renderer: panels fall back
+          to a flat `backgroundColor` fill and draw no border. The two page
+          surfaces below are therefore bordered Containers, not Panels. */}
+      <color attach="background" args={["#e4e4e7"]} />
       <ambientLight intensity={0.5} />
       <directionalLight intensity={0} position={[5, 1, 10]} />
       <Fullscreen
@@ -273,11 +292,19 @@ export function HorizonExample() {
         padding={32}
         gap={32}
       >
-        <Panel flexShrink={0} alignSelf="center" flexDirection="row">
+        <Container
+          flexShrink={0}
+          alignSelf="center"
+          flexDirection="row"
+          backgroundColor="#ffffff"
+          borderWidth={1}
+          borderColor="#a1a1aa"
+          borderRadius={16}
+        >
           <RadioGroup
             overflow="scroll"
             padding={20}
-            scrollbarColor="rgba(255, 255, 255, 0.1)"
+            scrollbarColor="#a1a1aa"
             scrollbarBorderRadius={4}
             value={component}
             onValueChange={(value) => setComponent(value ?? defaultComponent)}
@@ -294,14 +321,26 @@ export function HorizonExample() {
               </RadioGroupItem>
             ))}
           </RadioGroup>
-        </Panel>
+        </Container>
 
-        <Panel flexDirection="column" flexGrow={1} alignItems="center" justifyContent="center" alignSelf="stretch">
+        <Container
+          flexDirection="column"
+          flexGrow={1}
+          alignItems="center"
+          justifyContent="center"
+          alignSelf="stretch"
+          backgroundColor="#ffffff"
+          borderWidth={1}
+          borderColor="#a1a1aa"
+          borderRadius={16}
+        >
           {(() => {
-            const Component = componentPages[component as keyof typeof componentPages] ?? AvatarDemo;
+            const Component =
+              componentPages[component as keyof typeof componentPages] ??
+              AvatarDemo;
             return <Component />;
           })()}
-        </Panel>
+        </Container>
 
         <Panel padding={8} flexDirection="row" gap={12} alignItems="center">
           <Text
